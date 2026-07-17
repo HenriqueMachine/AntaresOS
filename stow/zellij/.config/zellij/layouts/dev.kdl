@@ -1,0 +1,39 @@
+// ═══════════════════════════════════════════════════════════════
+//  LabOS · layout "dev" — o padrão do dia a dia
+//  ┌──────────────────────────┬───────────────┐
+//  │                          │   terminal    │
+//  │         editor           ├───────────────┤
+//  │         (nvim)           │  Claude Code  │
+//  └──────────────────────────┴───────────────┘
+//  Suba com:  zellij --layout dev   (ou o alias `dev`)
+// ═══════════════════════════════════════════════════════════════
+
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+
+    tab name="code" focus=true {
+        pane split_direction="vertical" {
+            pane size="68%" name="editor" {
+                command "nvim"
+                args "."
+            }
+            pane split_direction="horizontal" size="32%" {
+                pane name="terminal"
+                pane name="agent" {
+                    // Painel do agente de IA. Se o claude não estiver
+                    // instalado, abre um shell normal.
+                    command "zsh"
+                    args "-ic" "command -v claude >/dev/null && claude || exec zsh"
+                }
+            }
+        }
+    }
+}

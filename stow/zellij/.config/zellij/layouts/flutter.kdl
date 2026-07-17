@@ -1,0 +1,41 @@
+// ═══════════════════════════════════════════════════════════════
+//  LabOS · layout "flutter" — workflow mobile
+//  ┌──────────────────────────┬───────────────┐
+//  │                          │  flutter run  │
+//  │         editor           ├───────────────┤
+//  │         (nvim)           │  devices/emu  │
+//  └──────────────────────────┴───────────────┘
+//  Suba com:  zellij --layout flutter   (ou o alias `fdev`)
+// ═══════════════════════════════════════════════════════════════
+
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+
+    tab name="flutter" focus=true {
+        pane split_direction="vertical" {
+            pane size="65%" name="editor" {
+                command "nvim"
+                args "."
+            }
+            pane split_direction="horizontal" size="35%" {
+                pane name="run" {
+                    // Deixa pronto o comando; você aperta Enter para rodar.
+                    command "zsh"
+                    args "-ic" "echo '▶  flutter run  (Enter para iniciar)'; exec zsh"
+                }
+                pane name="devices" size="40%" {
+                    command "zsh"
+                    args "-ic" "flutter devices; exec zsh"
+                }
+            }
+        }
+    }
+}

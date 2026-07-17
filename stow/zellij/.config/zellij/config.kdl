@@ -1,0 +1,35 @@
+// ═══════════════════════════════════════════════════════════════
+//  LabOS · Zellij — multiplexador / sessões persistentes
+//  Tema Catppuccin Mocha · atalhos descobríveis na barra inferior
+// ═══════════════════════════════════════════════════════════════
+
+theme "catppuccin-mocha"
+default_layout "dev"
+default_shell "zsh"
+
+// Mantém a barra de dicas visível (a "descobribilidade").
+pane_frames true
+mouse_mode true
+copy_on_select true
+scroll_buffer_size 100000
+
+// Sessões persistem em disco: reconecta e continua de onde parou.
+session_serialization true
+serialize_pane_viewport true
+
+// Paleta Catppuccin Mocha (caso o tema nomeado não exista na versão instalada)
+themes {
+    catppuccin-mocha {
+        bg "#585b70"
+        fg "#cdd6f4"
+        red "#f38ba8"
+        green "#a6e3a1"
+        blue "#89b4fa"
+        yellow "#f9e2af"
+        magenta "#f5c2e7"
+        orange "#fab387"
+        cyan "#89dceb"
+        black "#181825"
+        white "#cdd6f4"
+    }
+}

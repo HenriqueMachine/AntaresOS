@@ -1,0 +1,62 @@
+# ═══════════════════════════════════════════════════════════════
+#  LabOS · .gitconfig — configuração base do git
+#  Identidade (nome/email) fica em ~/.gitconfig.local (NÃO versionado),
+#  criado pelo install.sh na primeira execução.
+# ═══════════════════════════════════════════════════════════════
+
+[include]
+	path = ~/.gitconfig.local
+
+[init]
+	defaultBranch = main
+
+[core]
+	editor = nvim
+	pager = delta
+	excludesfile = ~/.gitignore_global
+	autocrlf = input
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	line-numbers = true
+	side-by-side = false
+	syntax-theme = Catppuccin Mocha
+
+[merge]
+	conflictstyle = zdiff3
+
+[diff]
+	colorMoved = default
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+	default = current
+
+[fetch]
+	prune = true
+
+[rerere]
+	enabled = true
+
+[color]
+	ui = auto
+
+[alias]
+	st = status -sb
+	co = checkout
+	br = branch
+	ci = commit
+	cm = commit -m
+	aa = add --all
+	unstage = reset HEAD --
+	last = log -1 HEAD --stat
+	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(dim white)%an%C(reset) %C(green)(%ar)%C(reset)%C(auto)%d%C(reset)%n          %s'
+	undo = reset --soft HEAD~1
+	amend = commit --amend --no-edit
+	wip = !git add -A && git commit -m 'wip'

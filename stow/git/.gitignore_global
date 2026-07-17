@@ -1,0 +1,32 @@
+# ═══════════════════════════════════════════════════════════════
+#  LabOS · .gitignore_global — ruído que nunca deve entrar em commits
+# ═══════════════════════════════════════════════════════════════
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Editores
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.iml
+
+# Ambiente / segredos
+.env
+.env.local
+*.pem
+*.key
+
+# Build / deps comuns
+node_modules/
+.dart_tool/
+build/
+.gradle/
+*.log

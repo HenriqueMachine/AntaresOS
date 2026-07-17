@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+._*
+
+# Backups criados pelo stow ao resolver conflitos
+*.labos-bak
+
+# Locks/artefatos
+Brewfile.lock.json
+
+# Nada de identidade/segredos aqui (eles vivem fora do repo, em ~/.gitconfig.local)

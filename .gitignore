@@ -16,3 +16,7 @@ stow/nvim/.config/nvim/lazyvim.json
 library/codex/.build/
 
 # Nada de identidade/segredos aqui (eles vivem fora do repo, em ~/.gitconfig.local)
+
+# Python bytecode
+__pycache__/
+*.pyc

@@ -1,7 +1,7 @@
 # AntaresOS · Ghostty — Matrix
 
-# Option esquerdo = Alt (atalhos do Zellij); Option direito segue p/ acentos.
-macos-option-as-alt = left
+# Option DIREITO = Alt (atalhos do Zellij); Option ESQUERDO segue p/ acentos (é, ã, ç…).
+macos-option-as-alt = right
 
 font-family = "FiraCode Nerd Font"
 font-size = 18

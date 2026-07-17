@@ -85,9 +85,12 @@ demand:
 |---|---|
 | `dev` | opens the workspace — three Zellij tabs: **`edit`** (Neovim), **`term`** (two terminals), **`lib`** (the library) |
 | `fdev` | opens the **Flutter** layout (editor + `flutter run` + devices) |
+| `proj` | fuzzy-pick a project under `~/Github` → open/attach its Zellij session (auto Flutter layout) |
 | `v` / `nvim` | launches the editor (LazyVim) |
 | `lg` | [lazygit](https://github.com/jesseduffield/lazygit) |
-| `z <dir>` | smart directory jump ([zoxide](https://github.com/ajeetdsouza/zoxide)) |
+| `z <dir>` | smart directory jump ([zoxide](https://github.com/ajeetdsouza/zoxide)) · `Ctrl-R` history ([atuin](https://github.com/atuinsh/atuin)) |
+| `run <file>` · `scratch <ext>` · `repl-py/clj/kt` | run code / open a scratch buffer / language REPLs |
+| `top` · `sysinfo` | system monitor (btop) · machine info (fastfetch) |
 | `antares-update` | update the whole environment (`git pull` + brew + stow + plugins) |
 
 <details>

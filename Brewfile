@@ -38,6 +38,12 @@ brew "poppler"
 brew "python@3.11"
 brew "trivy"
 
+# Languages / scratch (rodar blocos de código)
+tap "clojure/tools"
+brew "clojure/tools/clojure"   # Clojure CLI (clj)
+brew "kotlin"                  # kotlinc / REPL
+brew "rust"                    # cargo — necessário p/ compilar o sniprun no macOS
+
 # Mobile / Flutter
 cask "flutter"
 

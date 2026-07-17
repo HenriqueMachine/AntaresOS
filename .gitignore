@@ -3,7 +3,7 @@
 ._*
 
 # Backups criados pelo stow ao resolver conflitos
-*.labos-bak
+*.antares-bak
 
 # Locks/artefatos
 Brewfile.lock.json

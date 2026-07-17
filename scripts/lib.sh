@@ -1,18 +1,14 @@
 #!/usr/bin/env bash
-# ═══════════════════════════════════════════════════════════════
-#  LabOS · lib.sh — helpers compartilhados pelos scripts
-# ═══════════════════════════════════════════════════════════════
+# AntaresOS · lib.sh — helpers
 set -euo pipefail
 
-# Diretório-raiz do LabOS (um nível acima de scripts/)
-LABOS_DIR="${LABOS_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
-export LABOS_DIR
+ANTARES_DIR="${ANTARES_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
+export ANTARES_DIR
 
-# ── Cores (paleta aproximada Catppuccin) ────────────────────────
 if [[ -t 1 ]]; then
-  C_RESET=$'\e[0m'; C_MAUVE=$'\e[38;5;183m'; C_GREEN=$'\e[38;5;150m'
-  C_YELLOW=$'\e[38;5;223m'; C_RED=$'\e[38;5;210m'; C_BLUE=$'\e[38;5;117m'
-  C_DIM=$'\e[2m'
+  C_RESET=$'\e[0m'; C_MAUVE=$'\e[38;5;46m'; C_GREEN=$'\e[38;5;42m'
+  C_YELLOW=$'\e[38;5;222m'; C_RED=$'\e[38;5;203m'; C_BLUE=$'\e[38;5;44m'
+  C_DIM=$'\e[38;5;65m'
 else
   C_RESET=''; C_MAUVE=''; C_GREEN=''; C_YELLOW=''; C_RED=''; C_BLUE=''; C_DIM=''
 fi

@@ -1,185 +1,175 @@
 <div align="center">
 
-# 🔬 LabOS
+<img src="assets/logo.png" alt="AntaresOS" width="168" />
 
-**Meu laboratório operacional** — uma estação de trabalho macOS
-_keyboard-driven_, componível e persistente, que se reconstrói do zero
-com **um clone e um comando**.
+# AntaresOS
 
-<samp>
+**A keyboard-driven, composable, persistent macOS workstation — provisioned with a single command.**
 
-`keyboard-driven` · `componível` · `persistente`
+<sub>Named after Antares, the red supergiant at the heart of Scorpius — dressed in a Matrix green terminal.</sub>
 
-</samp>
+<br/>
 
-![macOS](https://img.shields.io/badge/macOS-Apple_Silicon-000?logo=apple&logoColor=white)
-![shell](https://img.shields.io/badge/shell-zsh-89b4fa)
-![theme](https://img.shields.io/badge/theme-Catppuccin_Mocha-cba6f7)
-![license](https://img.shields.io/badge/license-MIT-a6e3a1)
+![macOS](https://img.shields.io/badge/macOS-Apple_Silicon-00ff41?style=flat-square&labelColor=000000)
+![shell](https://img.shields.io/badge/shell-zsh-00ff41?style=flat-square&labelColor=000000)
+![editor](https://img.shields.io/badge/editor-Neovim-00ff41?style=flat-square&labelColor=000000)
+![theme](https://img.shields.io/badge/theme-Matrix-00ff41?style=flat-square&labelColor=000000)
+![license](https://img.shields.io/badge/license-MIT-00ff41?style=flat-square&labelColor=000000)
 
 </div>
 
 ---
 
-## ✦ Filosofia
+## Overview
 
-O LabOS é montado em torno de três princípios:
+AntaresOS is my personal development environment, version-controlled so any Mac can
+be rebuilt into it with **one clone and one command**. It is not a snapshot of
+scattered dotfiles — it is a deliberately composed workstation, tuned for speed and
+focus.
 
-1. **Keyboard-driven, mouse-free** — menos context-switch mão↔mouse; foco e
-   velocidade. Navegação, edição e janelas vivem sob os dedos.
-2. **Componível** — terminal, multiplexador, editor e agente de IA são
-   camadas independentes que se encaixam. Cada peça pode ser entendida,
-   trocada e testada isoladamente.
-3. **Persistente** — as sessões sobrevivem a fechamentos e desconexões. Você
-   volta exatamente de onde parou. _(A camada remota — Tailscale + mosh — está
-   planejada para uma fase 2.)_
+It is guided by three principles:
+
+- **Keyboard-driven** — the hands stay on the home row. Navigation, editing, and
+  window management are all a keystroke away, minimizing hand-to-mouse context
+  switches.
+- **Composable** — the terminal, multiplexer, editor, and AI agent are independent
+  layers that snap together. Each can be understood, swapped, and tested on its own.
+- **Persistent** — sessions survive closed windows and disconnects. You return
+  exactly where you left off.
 
 ---
 
-## ✦ As camadas
+## The stack
 
-| Camada | Ferramenta | Papel |
+Every layer is unified under a **Matrix** theme — phosphor green (`#00ff41`) on true
+black.
+
+| Layer | Tool | Role |
 |---|---|---|
-| 🪟 **Terminal** | [Ghostty](https://ghostty.org) | a janela — rápida, GPU, keyboard-first |
-| 🧩 **Multiplexador** | [Zellij](https://zellij.dev) | painéis + sessões persistentes (auto-attach) |
-| 🐚 **Shell** | zsh + [starship](https://starship.rs) | prompt + autosuggestions + syntax-highlight |
-| ✍️ **Editor** | [Neovim](https://neovim.io) / [LazyVim](https://lazyvim.org) | edição modal no terminal |
-| 🤖 **Agente** | [Claude Code](https://claude.com/claude-code) | IA no fluxo, num painel próprio |
-| 🧭 **Navegação** | `fzf` · `zoxide` · `eza` · `bat` · `lazygit` · `ripgrep` · `fd` | movimento sem mouse |
-
-Tudo unificado no tema **Catppuccin Mocha** 🌿.
+| **Terminal** | [Ghostty](https://ghostty.org) | GPU-accelerated, keyboard-first window |
+| **Multiplexer** | [Zellij](https://zellij.dev) | panes and persistent sessions |
+| **Shell** | zsh + [starship](https://starship.rs) | prompt, autosuggestions, syntax highlighting |
+| **Editor** | [Neovim](https://neovim.io) + [LazyVim](https://lazyvim.org) | modal editing in the terminal |
+| **Agent** | [Claude Code](https://claude.com/claude-code) | AI in the loop, in its own pane |
+| **Navigation** | `fzf` · `zoxide` · `eza` · `bat` · `lazygit` · `ripgrep` · `fd` | mouse-free movement |
 
 ---
 
-## ✦ Instalação (máquina nova)
+## Quick start
 
 ```bash
-git clone https://github.com/HenriqueMachine/LabOS.git ~/LabOS
-cd ~/LabOS
+git clone https://github.com/HenriqueMachine/AntaresOS.git ~/Github/AntaresOS
+cd ~/Github/AntaresOS
 ./install.sh
 ```
 
-Isso, em ordem e de forma **idempotente**:
+`install.sh` is fully idempotent and runs, in order:
 
 ```
-00 · instala o Homebrew (se faltar)
-10 · brew bundle  → todos os programas do Brewfile
-20 · GNU Stow     → cria os symlinks dos dotfiles no seu $HOME
-30 · pós-install  → oh-my-zsh, plugins, fvm, Claude Code,
-                    identidade do git e pré-aquecimento do LazyVim
+00 · install Homebrew (if missing)
+10 · brew bundle      → every package in the Brewfile
+20 · GNU Stow         → symlink the dotfiles into $HOME
+30 · post-install     → oh-my-zsh, plugins, fvm, Claude Code,
+                        git identity, and a LazyVim plugin warm-up
 ```
 
-Ao final: abra o **Ghostty**, o Zellij sobe sozinho, e você já está no ambiente.
-
-> **Só os dotfiles, sem instalar programas?**
-> `./install.sh --dotfiles`
+> **Dotfiles only, without installing packages:** `./install.sh --dotfiles`
 
 ---
 
-## ✦ Uso no dia a dia
+## Daily use
 
-| Comando | O que faz |
+Opening a terminal drops you into a clean shell. The environment is summoned on
+demand:
+
+| Command | What it does |
 |---|---|
-| _(abrir o terminal)_ | cai numa sessão **Zellij** persistente automaticamente |
-| `dev` | layout **editor + terminal + Claude Code** |
-| `fdev` | layout **Flutter** (editor + `flutter run` + devices) |
-| `v` / `nvim` | abre o editor (LazyVim) |
+| `dev` | opens the **editor + terminal + Claude Code** layout (Zellij session `antares`) |
+| `fdev` | opens the **Flutter** layout (editor + `flutter run` + devices) |
+| `v` / `nvim` | launches the editor (LazyVim) |
 | `lg` | [lazygit](https://github.com/jesseduffield/lazygit) |
-| `z <pasta>` | pulo inteligente de diretório ([zoxide](https://github.com/ajeetdsouza/zoxide)) |
-| `labos-update` | atualiza todo o ambiente (`git pull` + brew + stow + plugins) |
-
-### Atalhos-chave
+| `z <dir>` | smart directory jump ([zoxide](https://github.com/ajeetdsouza/zoxide)) |
+| `antares-update` | update the whole environment (`git pull` + brew + stow + plugins) |
 
 <details>
-<summary><b>Shell / navegação</b></summary>
+<summary><b>Shell &amp; navigation shortcuts</b></summary>
 
-| Tecla | Ação |
+| Key | Action |
 |---|---|
-| `Ctrl-R` | busca fuzzy no histórico (fzf) |
-| `Ctrl-T` | busca fuzzy de arquivos (fzf) |
-| `Alt-C` | pula para um diretório (fzf) |
-| `ls` / `ll` / `la` / `lt` | listagens com [eza](https://github.com/eza-community/eza) (ícones, git) |
-| `cat` | [bat](https://github.com/sharkdp/bat) com syntax highlight |
+| `Ctrl-R` | fuzzy history search (fzf) |
+| `Ctrl-T` | fuzzy file search (fzf) |
+| `Alt-C` | jump into a directory (fzf) |
+| `ls` · `ll` · `la` · `lt` | listings via [eza](https://github.com/eza-community/eza) (icons, git) |
+| `cat` | [bat](https://github.com/sharkdp/bat) with syntax highlighting |
 
 </details>
 
 <details>
 <summary><b>Flutter / mobile</b></summary>
 
-| Alias | Comando |
+| Alias | Command |
 |---|---|
-| `fl` | `flutter` (roteado pelo **fvm** quando presente) |
+| `fl` | `flutter` (routed through **fvm** when present) |
 | `fpg` | `flutter pub get` |
 | `frun` | `flutter run` |
 | `fclean` | `flutter clean && flutter pub get` |
 | `fbr` / `fbw` | `build_runner build` / `watch` |
 | `fdoc` | `flutter doctor -v` |
-| `fnew <nome>` | cria um projeto e já roda `pub get` |
+| `fnew <name>` | scaffold a project and run `pub get` |
 
-No Neovim: `<leader>F` abre o grupo Flutter (run, restart, devices, outline…).
+In Neovim, `<leader>F` opens the Flutter group (run, restart, devices, outline).
 
 </details>
 
 ---
 
-## ✦ Estrutura do repositório
+## Repository layout
 
 ```
-LabOS/
-├── install.sh              # ponto de entrada (tudo, idempotente)
+AntaresOS/
+├── install.sh              # entry point (full, idempotent)
 ├── update.sh               # git pull + brew + restow + plugins
-├── Brewfile                # a fonte da verdade dos programas
+├── Brewfile                # the single source of truth for packages
 ├── scripts/
-│   ├── lib.sh              # helpers de log/cor
+│   ├── lib.sh              # logging helpers
 │   ├── 00-homebrew.sh
 │   ├── 10-brew-bundle.sh
-│   ├── 20-stow.sh          # symlinks (com backup de conflitos)
-│   └── 30-post.sh          # frameworks, agente, identidade
-├── stow/                   # cada pasta = 1 "pacote" do GNU Stow
+│   ├── 20-stow.sh          # symlinks (backs up conflicts)
+│   └── 30-post.sh          # frameworks, agent, identity
+├── stow/                   # each folder is one GNU Stow package
 │   ├── zsh/                # .zshrc + .zsh/{exports,aliases,flutter,init}.zsh
 │   ├── git/                # .gitconfig (+ delta) + .gitignore_global
-│   ├── starship/           # prompt Catppuccin
-│   ├── ghostty/            # config do terminal
+│   ├── starship/           # Matrix prompt
+│   ├── ghostty/            # terminal config + palette
 │   ├── zellij/             # config + layouts (dev, flutter)
-│   ├── nvim/               # LazyVim + Catppuccin + flutter-tools
-│   └── claude/             # CLAUDE.md global (contexto do ambiente)
-└── docs/                   # documento de design
+│   ├── nvim/               # LazyVim + base16 Matrix + flutter-tools
+│   └── claude/             # global CLAUDE.md (environment context)
+└── assets/                 # logo
 ```
 
-Cada pacote é um symlink independente — dá para aplicar, remover ou entender um
-sem tocar nos outros. Para editar um dotfile, **mexa na origem em
-`~/LabOS/stow/...`**, nunca no symlink do `$HOME`.
+Each package is an independent symlink — apply, remove, or reason about one without
+touching the others. To change a dotfile, **edit the source in
+`~/Github/AntaresOS/stow/...`**, never the symlink in `$HOME`.
 
 ---
 
-## ✦ Identidade & segredos
+## Identity &amp; secrets
 
-Nada sensível vai para o repositório. Na primeira execução, o `install.sh`
-pergunta seu nome/email e grava em **`~/.gitconfig.local`** (fora do
-versionamento). O `.gitconfig` versionado só faz `include` desse arquivo.
-Overrides específicos da máquina vão em **`~/.zshrc.local`**.
-
----
-
-## ✦ Como estender
-
-- **Novo programa?** adicione ao `Brewfile` e rode `labos-update`.
-- **Nova config?** crie o arquivo dentro do pacote em `stow/<pacote>/` e rode
-  `./install.sh --dotfiles`.
-- **Novo pacote?** crie `stow/<nome>/` espelhando o caminho a partir do `$HOME`
-  e inclua o nome no array `PACKAGES` de `scripts/20-stow.sh`.
+Nothing sensitive is committed. On first run, `install.sh` writes your name and email
+to **`~/.gitconfig.local`** (git-ignored); the tracked `.gitconfig` merely `include`s
+it. Machine-specific overrides go in **`~/.zshrc.local`**.
 
 ---
 
-## ✦ Roadmap
+## Extending
 
-- [ ] Fase 2 — camada remota: **Tailscale + mosh** (acessar as sessões de
-      qualquer lugar).
-- [ ] `macos/defaults.sh` — ajustes finos do sistema (teclado, Finder…).
-- [ ] Múltiplos agentes de IA coordenados em painéis.
+- **New package?** add it to the `Brewfile` and run `antares-update`.
+- **New config?** drop the file into `stow/<package>/` and run `./install.sh --dotfiles`.
+- **New package group?** create `stow/<name>/` mirroring its path from `$HOME`, then
+  add the name to the `PACKAGES` array in `scripts/20-stow.sh`.
 
 ---
 
 <div align="center">
-<sub>Feito com foco e teclado por <b>Henrique Paixão</b> · MIT</sub>
+<sub>Crafted with focus and a keyboard by <b>Henrique Paixão</b> · MIT</sub>
 </div>

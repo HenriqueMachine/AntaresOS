@@ -1,6 +1,4 @@
-# ═══════════════════════════════════════════════════════════════
-#  LabOS · starship.toml — prompt (paleta Catppuccin Mocha)
-# ═══════════════════════════════════════════════════════════════
+# AntaresOS · starship.toml — Matrix
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
@@ -22,14 +20,14 @@ $line_break\
 $character"""
 
 add_newline = true
-palette = "catppuccin_mocha"
+palette = "antares_matrix"
 
 [fill]
 symbol = " "
 
 [os]
 disabled = false
-style = "bg:surface0 fg:text"
+style = "bg:surface0 fg:green"
 [os.symbols]
 Macos = "󰀵 "
 
@@ -42,11 +40,11 @@ truncation_symbol = "…/"
 "Documents" = "󰈙 "
 "Downloads" = " "
 "Github" = " "
-"LabOS" = "🔬 "
+"AntaresOS" = "✦ "
 
 [git_branch]
 symbol = ""
-style = "bg:surface1 fg:mauve"
+style = "bg:surface1 fg:cyan"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
@@ -55,7 +53,7 @@ format = '[$all_status$ahead_behind ]($style)'
 
 [flutter]
 symbol = ""
-style = "bg:surface2 fg:blue"
+style = "bg:surface2 fg:sky"
 format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
@@ -65,43 +63,30 @@ format = '[ $symbol ($version) ]($style)'
 
 [python]
 symbol = ""
-style = "bg:surface2 fg:yellow"
+style = "bg:surface2 fg:amber"
 format = '[ $symbol ($version) ]($style)'
 
 [cmd_duration]
 min_time = 500
-style = "fg:subtext0"
+style = "fg:dim"
 format = '[  $duration ]($style)'
 
 [character]
 success_symbol = "[❯](bold green)"
 error_symbol = "[❯](bold red)"
-vimcmd_symbol = "[❮](bold yellow)"
+vimcmd_symbol = "[❮](bold amber)"
 
-[palettes.catppuccin_mocha]
-rosewater = "#f5e0dc"
-flamingo = "#f2cdcd"
-pink = "#f5c2e7"
-mauve = "#cba6f7"
-red = "#f38ba8"
-maroon = "#eba0ac"
-peach = "#fab387"
-yellow = "#f9e2af"
-green = "#a6e3a1"
-teal = "#94e2d5"
-sky = "#89dceb"
-sapphire = "#74c7ec"
-blue = "#89b4fa"
-lavender = "#b4befe"
-text = "#cdd6f4"
-subtext1 = "#bac2de"
-subtext0 = "#a6adc8"
-overlay2 = "#9399b2"
-overlay1 = "#7f849c"
-overlay0 = "#6c7086"
-surface2 = "#585b70"
-surface1 = "#45475a"
-surface0 = "#313244"
-base = "#1e1e2e"
-mantle = "#181825"
-crust = "#11111b"
+[palettes.antares_matrix]
+green = "#00ff41"
+text = "#7cffa0"
+bright = "#c8ffd4"
+dim = "#2e6b3e"
+cyan = "#48ffe0"
+sky = "#35c9ff"
+amber = "#f5d76e"
+magenta = "#ff6fd8"
+red = "#ff4d4d"
+surface2 = "#14371f"
+surface1 = "#0f230f"
+surface0 = "#0b140b"
+base = "#000000"

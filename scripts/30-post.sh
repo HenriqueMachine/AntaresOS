@@ -1,30 +1,24 @@
 #!/usr/bin/env bash
-# ═══════════════════════════════════════════════════════════════
-#  LabOS · 30 — pós-instalação (frameworks, agente, identidade)
-# ═══════════════════════════════════════════════════════════════
+# AntaresOS · 30 — pós-instalação
 source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
 
-# ── Oh My Zsh ───────────────────────────────────────────────────
 step "Oh My Zsh"
 if [[ -d "$HOME/.oh-my-zsh" ]]; then
   ok "Oh My Zsh já presente"
 else
-  info "Instalando Oh My Zsh (sem trocar o shell nem abrir zsh)…"
+  info "Instalando Oh My Zsh…"
   RUNZSH=no KEEP_ZSHRC=yes CHSH=no \
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   ok "Oh My Zsh instalado"
 fi
 
-# ── zsh como shell padrão ───────────────────────────────────────
 step "Shell padrão"
-BREW_ZSH="$(brew --prefix 2>/dev/null)/bin/zsh"
 if [[ "$SHELL" != *zsh ]]; then
   warn "Shell atual não é zsh. Para trocar: chsh -s $(command -v zsh)"
 else
   ok "zsh já é o shell padrão"
 fi
 
-# ── fvm (gerenciador de versões do Flutter) ─────────────────────
 step "fvm (Flutter)"
 if have fvm; then
   ok "fvm já instalado ($(fvm --version 2>/dev/null))"
@@ -32,10 +26,9 @@ elif have dart; then
   info "Instalando fvm via dart pub global…"
   dart pub global activate fvm || warn "não consegui instalar o fvm agora"
 else
-  warn "dart/flutter ainda não disponível — instale o fvm depois com: dart pub global activate fvm"
+  warn "dart/flutter ainda não disponível — instale o fvm depois: dart pub global activate fvm"
 fi
 
-# ── Claude Code (agente de IA) ──────────────────────────────────
 step "Claude Code"
 if have claude; then
   ok "Claude Code já instalado"
@@ -46,33 +39,25 @@ else
   elif have npm; then
     npm install -g @anthropic-ai/claude-code && ok "Claude Code instalado (npm)"
   else
-    warn "Não consegui instalar o Claude Code automaticamente. Veja: https://claude.com/claude-code"
+    warn "Não consegui instalar o Claude Code. Veja: https://claude.com/claude-code"
   fi
 fi
 
-# ── Tema Catppuccin para o bat/delta ────────────────────────────
-step "Tema Catppuccin (bat/delta)"
-BAT_THEME_DIR="$(bat --config-dir 2>/dev/null)/themes"
-if have bat && [[ ! -f "$BAT_THEME_DIR/Catppuccin Mocha.tmTheme" ]]; then
-  mkdir -p "$BAT_THEME_DIR"
-  if curl -fsSL -o "$BAT_THEME_DIR/Catppuccin Mocha.tmTheme" \
-      "https://raw.githubusercontent.com/catppuccin/bat/main/themes/Catppuccin%20Mocha.tmTheme"; then
-    bat cache --build >/dev/null 2>&1 && ok "tema Catppuccin Mocha instalado no bat"
-  else
-    warn "não consegui baixar o tema do bat (delta cairá no tema padrão)"
-  fi
-else
-  have bat && ok "tema do bat já presente"
-fi
+step "Tema (bat/delta)"
+info "bat e delta usam o tema 'base16' (herdam os ANSI verdes do terminal)"
+have bat && ok "nada a baixar — tema base16 é embutido"
 
-# ── Identidade do git (NÃO versionada) ──────────────────────────
 step "Identidade do git (~/.gitconfig.local)"
 if [[ -f "$HOME/.gitconfig.local" ]]; then
   ok "~/.gitconfig.local já existe — mantendo"
 else
-  # Aproveita valores atuais como sugestão, se existirem.
   cur_name="$(git config --global user.name 2>/dev/null || true)"
   cur_email="$(git config --global user.email 2>/dev/null || true)"
+  # Após o stow, ~/.gitconfig já é o do AntaresOS (sem identidade). Busca no backup.
+  if [[ -z "$cur_email" && -f "$HOME/.gitconfig.antares-bak" ]]; then
+    cur_name="$(git config -f "$HOME/.gitconfig.antares-bak" user.name 2>/dev/null || echo "$cur_name")"
+    cur_email="$(git config -f "$HOME/.gitconfig.antares-bak" user.email 2>/dev/null || true)"
+  fi
   if [[ -t 0 ]]; then
     printf '  Nome para os commits [%s]: ' "${cur_name:-Henrique Paixão}"
     read -r in_name
@@ -82,7 +67,6 @@ else
   name="${in_name:-${cur_name:-Henrique Paixão}}"
   email="${in_email:-$cur_email}"
   {
-    echo "# LabOS · identidade local do git (NÃO versionado)"
     echo "[user]"
     echo "	name = $name"
     echo "	email = $email"
@@ -90,7 +74,6 @@ else
   ok "criado ~/.gitconfig.local ($name <$email>)"
 fi
 
-# ── Neovim: pré-aquecer plugins (LazyVim) ───────────────────────
 step "Neovim / LazyVim"
 if have nvim; then
   info "Sincronizando plugins (headless)…"

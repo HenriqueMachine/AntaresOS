@@ -1,12 +1,4 @@
-// ═══════════════════════════════════════════════════════════════
-//  LabOS · layout "flutter" — workflow mobile
-//  ┌──────────────────────────┬───────────────┐
-//  │                          │  flutter run  │
-//  │         editor           ├───────────────┤
-//  │         (nvim)           │  devices/emu  │
-//  └──────────────────────────┴───────────────┘
-//  Suba com:  zellij --layout flutter   (ou o alias `fdev`)
-// ═══════════════════════════════════════════════════════════════
+// AntaresOS · layout "flutter" — editor + run + devices
 
 layout {
     default_tab_template {
@@ -27,7 +19,6 @@ layout {
             }
             pane split_direction="horizontal" size="35%" {
                 pane name="run" {
-                    // Deixa pronto o comando; você aperta Enter para rodar.
                     command "zsh"
                     args "-ic" "echo '▶  flutter run  (Enter para iniciar)'; exec zsh"
                 }

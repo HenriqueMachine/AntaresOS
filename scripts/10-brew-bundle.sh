@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-# ═══════════════════════════════════════════════════════════════
-#  LabOS · 10 — instala tudo do Brewfile
-# ═══════════════════════════════════════════════════════════════
+# AntaresOS · 10 — brew bundle
 source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
 
 step "Programas (brew bundle)"
@@ -12,5 +10,5 @@ if ! have brew; then
 fi
 
 info "Resolvendo o Brewfile (isso pode demorar na primeira vez)…"
-brew bundle --file="$LABOS_DIR/Brewfile" --no-lock
+brew bundle install --file="$ANTARES_DIR/Brewfile" --no-upgrade
 ok "Programas do Brewfile instalados/atualizados"

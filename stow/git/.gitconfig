@@ -1,8 +1,4 @@
-# ═══════════════════════════════════════════════════════════════
-#  LabOS · .gitconfig — configuração base do git
-#  Identidade (nome/email) fica em ~/.gitconfig.local (NÃO versionado),
-#  criado pelo install.sh na primeira execução.
-# ═══════════════════════════════════════════════════════════════
+# AntaresOS · .gitconfig — identidade fica em ~/.gitconfig.local (não versionado)
 
 [include]
 	path = ~/.gitconfig.local
@@ -23,7 +19,9 @@
 	navigate = true
 	line-numbers = true
 	side-by-side = false
-	syntax-theme = Catppuccin Mocha
+	syntax-theme = base16
+	plus-style = "syntax #052e10"
+	minus-style = "syntax #2e0808"
 
 [merge]
 	conflictstyle = zdiff3

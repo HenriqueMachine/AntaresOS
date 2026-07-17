@@ -1,12 +1,4 @@
-// ═══════════════════════════════════════════════════════════════
-//  LabOS · layout "dev" — o padrão do dia a dia
-//  ┌──────────────────────────┬───────────────┐
-//  │                          │   terminal    │
-//  │         editor           ├───────────────┤
-//  │         (nvim)           │  Claude Code  │
-//  └──────────────────────────┴───────────────┘
-//  Suba com:  zellij --layout dev   (ou o alias `dev`)
-// ═══════════════════════════════════════════════════════════════
+// AntaresOS · layout "dev" — editor + terminal + Claude Code
 
 layout {
     default_tab_template {
@@ -28,8 +20,6 @@ layout {
             pane split_direction="horizontal" size="32%" {
                 pane name="terminal"
                 pane name="agent" {
-                    // Painel do agente de IA. Se o claude não estiver
-                    // instalado, abre um shell normal.
                     command "zsh"
                     args "-ic" "command -v claude >/dev/null && claude || exec zsh"
                 }

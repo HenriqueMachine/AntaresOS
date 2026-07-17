@@ -1,21 +1,18 @@
 #!/usr/bin/env bash
-# ═══════════════════════════════════════════════════════════════
-#  LabOS · update.sh — atualiza o ambiente
-#  git pull → brew bundle → restow → plugins
-# ═══════════════════════════════════════════════════════════════
+# AntaresOS · update.sh
 set -euo pipefail
 
-LABOS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-export LABOS_DIR
-source "$LABOS_DIR/scripts/lib.sh"
+ANTARES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export ANTARES_DIR
+source "$ANTARES_DIR/scripts/lib.sh"
 
-step "Atualizando o LabOS"
+step "Updating AntaresOS"
 
-info "Puxando as últimas mudanças do repositório…"
-git -C "$LABOS_DIR" pull --ff-only || warn "git pull falhou (mudanças locais?)"
+info "Pulling latest changes…"
+git -C "$ANTARES_DIR" pull --ff-only || warn "git pull falhou (mudanças locais?)"
 
-bash "$LABOS_DIR/scripts/10-brew-bundle.sh"
-bash "$LABOS_DIR/scripts/20-stow.sh"
+bash "$ANTARES_DIR/scripts/10-brew-bundle.sh"
+bash "$ANTARES_DIR/scripts/20-stow.sh"
 
 step "Neovim"
 if have nvim; then
@@ -23,7 +20,7 @@ if have nvim; then
     || warn "abra o nvim para concluir a atualização dos plugins"
 fi
 
-info "Atualizando o Homebrew em si…"
+info "Updating Homebrew…"
 brew update >/dev/null 2>&1 && brew upgrade >/dev/null 2>&1 && ok "Homebrew atualizado" || true
 
-ok "LabOS atualizado. Rode 'reload' para recarregar o shell."
+ok "AntaresOS atualizado. Rode 'reload' para recarregar o shell."

@@ -1,6 +1,4 @@
--- ═══════════════════════════════════════════════════════════════
---  LabOS · Neovim — configuração do gerenciador de plugins (lazy.nvim)
--- ═══════════════════════════════════════════════════════════════
+-- AntaresOS · Neovim — lazy.nvim
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -19,12 +17,9 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
-    -- LazyVim: baterias inclusas (LSP, treesitter, telescope, etc.)
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    -- Extras úteis para o stack do LabOS
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
-    -- Overrides e plugins do LabOS
     { import = "plugins" },
   },
   defaults = { lazy = false, version = false },

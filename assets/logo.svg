@@ -1,0 +1,62 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AntaresOS logo">
+  <defs>
+    <radialGradient id="star" cx="50%" cy="45%" r="60%">
+      <stop offset="0" stop-color="#eaffee"/>
+      <stop offset="0.35" stop-color="#00ff41"/>
+      <stop offset="1" stop-color="#0a9a2c"/>
+    </radialGradient>
+    <linearGradient id="vign" x1="0" y1="0" x2="0" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#031206"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <clipPath id="card"><rect x="16" y="16" width="480" height="480" rx="112"/></clipPath>
+  </defs>
+
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#vign)"/>
+
+  <!-- matrix code rain -->
+  <g clip-path="url(#card)" font-family="monospace" font-size="22" font-weight="600" fill="#00ff41">
+    <text x="70"  y="70"  opacity="0.10">1 0 1 0 0 1 1 0 1 0 1 1</text>
+    <text x="150" y="120" opacity="0.08">0 1 1 0 1 0 0 1 0 1 1 0</text>
+    <text x="60"  y="180" opacity="0.07">1 1 0 1 0 1 1 0 0 1 0 1</text>
+    <text x="200" y="230" opacity="0.06">0 0 1 0 1 1 0 1 1 0 1 0</text>
+    <text x="90"  y="300" opacity="0.06">1 0 1 1 0 0 1 0 1 1 0 1</text>
+    <text x="240" y="360" opacity="0.05">0 1 0 1 1 0 1 0 0 1 1 0</text>
+    <text x="70"  y="430" opacity="0.05">1 1 0 0 1 0 1 1 0 1 0 0</text>
+    <g opacity="0.9" fill="#c8ffd4" filter="url(#softglow)">
+      <text x="118" y="120" opacity="0.5">1</text>
+      <text x="330" y="150" opacity="0.45">0</text>
+      <text x="150" y="330" opacity="0.4">1</text>
+      <text x="360" y="360" opacity="0.5">0</text>
+    </g>
+  </g>
+
+  <!-- Antares — four-point sparkle star -->
+  <g filter="url(#glow)">
+    <path d="M256 108 Q256 226 374 226 Q256 226 256 344 Q256 226 138 226 Q256 226 256 108 Z" fill="url(#star)"/>
+    <path d="M256 150 Q256 226 332 226 Q256 226 256 302 Q256 226 180 226 Q256 226 256 150 Z" fill="#eaffee" opacity="0.85"/>
+  </g>
+
+  <!-- secondary sparkles -->
+  <g fill="#00ff41" filter="url(#softglow)">
+    <path d="M150 122 Q150 148 176 148 Q150 148 150 174 Q150 148 124 148 Q150 148 150 122 Z" opacity="0.8"/>
+    <path d="M372 300 Q372 320 392 320 Q372 320 372 340 Q372 320 352 320 Q372 320 372 300 Z" opacity="0.7"/>
+  </g>
+
+  <!-- terminal prompt -->
+  <g filter="url(#softglow)">
+    <polyline points="150,384 178,408 150,432" fill="none" stroke="#00ff41" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="196" y="392" width="120" height="30" rx="6" fill="#00ff41" opacity="0.28"/>
+    <rect x="196" y="392" width="26" height="30" rx="4" fill="#c8ffd4"/>
+  </g>
+</svg>

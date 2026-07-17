@@ -1,4 +1,4 @@
-# LabOS — documento de design
+# AntaresOS — documento de design
 
 **Data:** 2026-07-17 · **Autor:** Henrique Paixão
 
@@ -29,16 +29,16 @@ produtividade real, não apenas replicado.
 | Multiplexador | Zellij, com auto-attach |
 | Editor | Neovim / LazyVim |
 | Agente | Claude Code no fluxo |
-| Tema | Catppuccin Mocha em todas as camadas |
+| Tema | Matrix (verde fósforo sobre preto) em todas as camadas |
 | Kit mobile | Flutter completo (fvm, aliases, layout, flutter-tools) |
 | Instalação | Clonar e rodar `./install.sh` |
-| Nome/visibilidade | `LabOS`, público |
+| Nome/visibilidade | `AntaresOS`, público |
 | Commits | Sem `Co-Authored-By`, autor Henrique Paixão |
 
 ## Arquitetura
 
 ```
-LabOS/
+AntaresOS/
 ├── install.sh / update.sh      # orquestradores idempotentes
 ├── Brewfile                    # fonte da verdade dos programas
 ├── scripts/                    # 00-homebrew · 10-brew-bundle · 20-stow · 30-post

@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-# ═══════════════════════════════════════════════════════════════
-#  LabOS · 00 — garante o Homebrew instalado
-# ═══════════════════════════════════════════════════════════════
+# AntaresOS · 00 — Homebrew
 source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
 
 step "Homebrew"
@@ -15,7 +13,6 @@ else
   ok "Homebrew instalado"
 fi
 
-# Garante o brew no PATH da sessão atual (Apple Silicon / Intel)
 if [[ -x /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 elif [[ -x /usr/local/bin/brew ]]; then

@@ -1,6 +1,4 @@
-# ═══════════════════════════════════════════════════════════════
-#  LabOS · .gitignore_global — ruído que nunca deve entrar em commits
-# ═══════════════════════════════════════════════════════════════
+# AntaresOS · .gitignore_global
 
 # macOS
 .DS_Store
@@ -24,7 +22,7 @@
 *.pem
 *.key
 
-# Build / deps comuns
+# Build / deps
 node_modules/
 .dart_tool/
 build/

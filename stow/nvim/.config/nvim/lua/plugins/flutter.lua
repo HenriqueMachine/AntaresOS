@@ -1,7 +1,4 @@
--- ═══════════════════════════════════════════════════════════════
---  LabOS · Neovim — kit Flutter / Dart
---  flutter-tools dá hot-reload, devices, outline e LSP do Dart.
--- ═══════════════════════════════════════════════════════════════
+-- AntaresOS · Neovim — Flutter / Dart
 return {
   {
     "nvim-flutter/flutter-tools.nvim",
@@ -11,7 +8,6 @@ return {
       "stevearc/dressing.nvim",
     },
     opts = {
-      -- Usa o Flutter roteado pelo fvm quando presente.
       fvm = true,
       widget_guides = { enabled = true },
       lsp = {
@@ -32,7 +28,6 @@ return {
       { "<leader>Fo", "<cmd>FlutterOutlineToggle<cr>", desc = "Flutter Outline" },
     },
   },
-  -- Garante o parser de Dart no treesitter.
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)

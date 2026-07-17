@@ -27,8 +27,16 @@ alias gp='git push'
 alias gpl='git pull'
 
 alias zj='zellij'
-dev()  { zellij attach antares   2>/dev/null || zellij --session antares   --layout dev; }
-fdev() { zellij attach flutter 2>/dev/null || zellij --session flutter --layout flutter; }
+_zj_open() {
+  local session="$1" layout="$2"
+  if zellij list-sessions -s 2>/dev/null | grep -qx "$session"; then
+    zellij attach "$session"
+  else
+    zellij --session "$session" --layout "$layout"
+  fi
+}
+dev()  { _zj_open antares dev; }
+fdev() { _zj_open flutter flutter; }
 
 alias ..='cd ..'
 alias ...='cd ../..'

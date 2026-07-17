@@ -21,6 +21,13 @@ brew "jq"
 brew "tldr"
 brew "navi"
 
+# Daily / DevX
+brew "atuin"      # histórico de shell turbinado (Ctrl-R)
+brew "direnv"     # env por diretório (.envrc)
+brew "mise"       # versões de linguagens por projeto
+brew "btop"       # monitor de sistema
+brew "fastfetch"  # info da máquina
+
 # Toolchain
 brew "awscli"
 brew "bash"

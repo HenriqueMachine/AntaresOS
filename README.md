@@ -122,20 +122,38 @@ In Neovim, `<leader>F` opens the Flutter group (run, restart, devices, outline).
 
 ---
 
-## Library — commands &amp; snippets
+## Library &amp; Codex
 
-A personal, version-controlled library of runnable commands and code snippets, kept
-in `library/` and synced with the environment.
+A personal, version-controlled knowledge base kept in `library/` and synced with the
+environment.
 
 | Command | What it does |
 |---|---|
-| `Ctrl-g` | open [navi](https://github.com/denisidoro/navi) — fuzzy-search a command and insert it (editable `<placeholders>`) |
-| `note "text"` | append a timestamped line to `library/notes/inbox.md` (no argument opens the file) |
+| `<trigger>` (in Neovim) | expand a **Codex** snippet — type e.g. `stless` → a `StatelessWidget` |
+| `snip` | fuzzy-search the Codex, preview the explanation + code, copy it |
+| `codex-build` | regenerate the Codex snippets from the `.md` sources (runs on `antares-update`) |
+| `Ctrl-g` | open [navi](https://github.com/denisidoro/navi) — fuzzy-search a command and insert it |
+| `note "text"` | append a timestamped line to `library/notes/inbox.md` |
 | `lib` | open the library in Neovim |
 
-- **Commands** live in `library/cheats/*.cheat` (navi format, grouped by `% tags`).
-- **Snippets** live in `library/snippets/*.md`, grouped by topic.
-- The `lib` tab of `dev` opens the library ready to edit.
+**The Codex** (`library/codex/*.md`) is a dictionary of snippets — each entry is a
+single source that both **expands in Neovim** (via LuaSnip) and reads as a **searchable
+reference** with an explanation, tags and links:
+
+```markdown
+## StatelessWidget
+- trigger: stless
+- tags: flutter, widget
+
+Widget with no state. Use it when the UI only depends on its inputs.
+
+​```dart
+class ${1:MyWidget} extends StatelessWidget { ... }
+​```
+```
+
+Also: **commands** in `library/cheats/*.cheat` (navi) and free-form **snippets** in
+`library/snippets/*.md`. The `lib` tab of `dev` opens it all ready to edit.
 
 ---
 

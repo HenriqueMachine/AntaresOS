@@ -1,25 +1,40 @@
-# library — comandos e snippets
+# library — comandos, snippets e o Codex
 
 Sua biblioteca pessoal, versionada com o AntaresOS.
 
 ```
 library/
+├── codex/       # dicionário de snippets (.md) → expandem no nvim + busca com snip
+│   └── .build/  # gerado (não versionado)
 ├── cheats/      # cheatsheets executáveis do navi (.cheat) — busca com Ctrl-g
-├── snippets/    # trechos de código por tema (.md)
+├── snippets/    # trechos de código soltos por tema (.md)
 └── notes/       # anotações rápidas (note "texto" cai em inbox.md)
 ```
 
-## Uso
-- **`Ctrl-g`** — abre o navi: filtra um comando e insere na linha (placeholders `<...>` são editáveis).
-- **`note "texto"`** — anexa uma linha em `notes/inbox.md` (com data/hora). Sem texto, abre o arquivo no nvim.
-- **`lib`** — abre esta pasta no Neovim.
-- Na sessão `dev`, a **tab `lib`** já abre a biblioteca no editor.
+## Codex — dicionário de snippets
+Cada verbete em `codex/*.md` vira **duas coisas**: um snippet que **expande no
+Neovim** (digite o gatilho) e um verbete **buscável** com explicação.
 
-## Adicionar um cheat
-Edite/crie um arquivo em `cheats/*.cheat`:
-```
-% tag1, tag2
+**Formato de um verbete:**
+```markdown
+## Título do verbete
+- trigger: gatilho
+- tags: tag1, tag2
+- links: https://...
 
-# Descrição do comando
-o comando aqui <placeholder>
+Explicação: o que é, quando e por que usar.
+
+​```dart
+o código, com placeholders ${1:assim}
+​```
 ```
+
+**Uso:**
+- No nvim: digite o `trigger` (ex: `stless`) e aceite a sugestão → expande.
+- **`snip`** — busca (fzf) por título/gatilho, mostra explicação + código no preview e **copia**.
+- **`codex-build`** — regenera após editar os `.md` (roda sozinho no `antares-update`).
+
+## Outros
+- **`Ctrl-g`** — navi: filtra um comando e insere na linha.
+- **`note "texto"`** — anexa em `notes/inbox.md`.
+- **`lib`** — abre a biblioteca no Neovim.

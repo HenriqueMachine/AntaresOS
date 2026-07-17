@@ -60,6 +60,9 @@ else
   ok "criado ~/.gitconfig.local ($name <$email>)"
 fi
 
+step "Codex"
+bash "$ANTARES_DIR/scripts/codex-build.sh" || warn "não consegui gerar o Codex"
+
 step "Neovim / LazyVim"
 if have nvim; then
   info "Sincronizando plugins (headless)…"

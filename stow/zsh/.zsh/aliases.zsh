@@ -32,7 +32,7 @@ _zj_open() {
   if zellij list-sessions -s 2>/dev/null | grep -qx "$session"; then
     zellij attach "$session"
   else
-    zellij --session "$session" --layout "$layout"
+    zellij --layout "$layout" attach --create "$session"
   fi
 }
 dev()  { _zj_open antares dev; }

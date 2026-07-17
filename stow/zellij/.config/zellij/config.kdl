@@ -12,6 +12,30 @@ scroll_buffer_size 100000
 session_serialization true
 serialize_pane_viewport true
 
+// autolock — trava o Zellij quando o nvim/fzf está em foco (teclas passam pro app)
+plugins {
+    autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
+        is_enabled true
+        triggers "nvim|vim|fzf|zoxide|atuin|lazygit|git|less|man"
+        reaction_seconds "0.3"
+        print_to_log false
+    }
+}
+load_plugins {
+    autolock
+}
+
+// Navegação sem emenda: Ctrl-hjkl move entre painéis (e, via smart-splits no nvim,
+// cruza pro editor). Fica inativo quando travado (autolock em nvim/fzf).
+keybinds {
+    shared_except "locked" {
+        bind "Ctrl h" { MoveFocusOrTab "Left"; }
+        bind "Ctrl l" { MoveFocusOrTab "Right"; }
+        bind "Ctrl j" { MoveFocus "Down"; }
+        bind "Ctrl k" { MoveFocus "Up"; }
+    }
+}
+
 themes {
     antares-matrix {
         bg "#14371f"

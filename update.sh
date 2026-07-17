@@ -14,6 +14,8 @@ git -C "$ANTARES_DIR" pull --ff-only || warn "git pull falhou (mudanças locais?
 bash "$ANTARES_DIR/scripts/10-brew-bundle.sh"
 bash "$ANTARES_DIR/scripts/20-stow.sh"
 
+bash "$ANTARES_DIR/scripts/40-zellij-plugins.sh"
+
 step "Codex"
 bash "$ANTARES_DIR/scripts/codex-build.sh" || warn "não consegui gerar o Codex"
 

@@ -36,6 +36,7 @@ case "$MODE" in
     bash "$ANTARES_DIR/scripts/10-brew-bundle.sh"
     bash "$ANTARES_DIR/scripts/20-stow.sh"
     bash "$ANTARES_DIR/scripts/30-post.sh"
+    bash "$ANTARES_DIR/scripts/40-zellij-plugins.sh"
     ;;
   *)
     err "Unknown mode: $MODE  (use: full | --dotfiles)"

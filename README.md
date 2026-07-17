@@ -182,6 +182,57 @@ An HTTP/HTTPS traffic inspector (the keyboard-driven, open-source Charles), buil
 regex) and serve a local response without hitting the server. **Flutter** ignores the
 system proxy/CA, so use the `flproxy` Codex snippet to route the debug build through it.
 
+### How to use
+
+**1. Start it**
+
+```bash
+antares proxy          # TUI on port 8080, auto-saving the session's flows
+```
+
+**2. Point a client at it and trust the certificate**
+
+| Client | Command / steps |
+|---|---|
+| Android emulator | `antares proxy android` (sets the proxy + installs the cert) |
+| iOS simulator | `antares proxy ios` (trusts the cert on the booted simulator) |
+| Physical device | `antares proxy device` → set Wi-Fi proxy to the printed `IP:8080`, open `http://mitm.it`, install the cert |
+| macOS apps | `antares proxy cert` prints the `security add-trusted-cert` command |
+
+**3. Inspect the traffic** (in the mitmproxy TUI)
+
+| Key | Action |
+|---|---|
+| `↑`/`↓` | move through the request list |
+| `Enter` | open a flow (tabs: Request / Response / Detail) |
+| `Tab` | switch between request and response |
+| `f` | set a display **filter** (e.g. `~d api.myapp.com`, `~u /login`) |
+| `r` | **replay** the selected request |
+| `w` / `e` | save flows to a file / export a flow (e.g. as curl) |
+| `q` | back / quit |
+
+**4. Mock a response** (Charles' Map Local)
+
+Edit `library/proxy/mocks.json`, set a rule's `"enabled": true`, then:
+
+```bash
+antares proxy mock     # matching requests are answered locally, server untouched
+```
+
+**5. Replay a past session**
+
+```bash
+antares proxy open     # fzf-pick a saved .flows file to reopen and inspect
+```
+
+**6. Debug a Flutter app**
+
+Flutter ignores the system proxy/CA. In your `main()` (debug only), expand the
+`flproxy` snippet in Neovim and call `enableDevProxy()` — for the Android emulator use
+host `10.0.2.2`, for the iOS simulator `127.0.0.1`.
+
+> When you're done: `antares proxy off` removes the emulator proxy.
+
 ---
 
 ## Repository layout

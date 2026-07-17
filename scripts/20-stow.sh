@@ -9,7 +9,7 @@ if ! have stow; then
   exit 1
 fi
 
-PACKAGES=(zsh git starship ghostty zellij nvim claude)
+PACKAGES=(zsh git starship ghostty zellij nvim)
 
 backup_conflicts() {
   local pkg="$1"

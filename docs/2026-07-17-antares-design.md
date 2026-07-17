@@ -28,7 +28,6 @@ produtividade real, não apenas replicado.
 | Terminal | Ghostty (migra do iTerm2) |
 | Multiplexador | Zellij, com auto-attach |
 | Editor | Neovim / LazyVim |
-| Agente | Claude Code no fluxo |
 | Tema | Matrix (verde fósforo sobre preto) em todas as camadas |
 | Kit mobile | Flutter completo (fvm, aliases, layout, flutter-tools) |
 | Instalação | Clonar e rodar `./install.sh` |
@@ -43,12 +42,12 @@ AntaresOS/
 ├── Brewfile                    # fonte da verdade dos programas
 ├── scripts/                    # 00-homebrew · 10-brew-bundle · 20-stow · 30-post
 └── stow/                       # 1 pasta = 1 pacote stowável
-    ├── zsh/ git/ starship/ ghostty/ zellij/ nvim/ claude/
+    ├── zsh/ git/ starship/ ghostty/ zellij/ nvim/
 ```
 
 ### Fluxo do install
 `Homebrew → brew bundle → stow (symlinks) → oh-my-zsh + plugins + fvm +
-Claude Code + identidade git + pré-aquecer LazyVim`. Cada passo é idempotente.
+identidade git + pré-aquecer LazyVim`. Cada passo é idempotente.
 
 ### Isolamento das unidades
 - **scripts/lib.sh** — helpers de log/cor, sem efeito colateral.

@@ -1,7 +1,7 @@
 # AntaresOS · Ghostty — Matrix
 
 font-family = "FiraCode Nerd Font"
-font-size = 14
+font-size = 18
 font-thicken = true
 
 background = 000000
@@ -29,13 +29,13 @@ palette = 13=#ff9be6
 palette = 14=#8affea
 palette = 15=#c8ffd4
 
-background-opacity = 0.80
-background-blur-radius = 32
+background-opacity = 0.60
+background-blur-radius = 30
 minimum-contrast = 1.1
 bold-is-bright = true
 
-window-padding-x = 12
-window-padding-y = 12
+window-padding-x = 14
+window-padding-y = 14
 window-decoration = true
 macos-titlebar-style = tabs
 window-save-state = always

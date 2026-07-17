@@ -38,5 +38,3 @@ cask "ghostty"
 cask "font-fira-code-nerd-font"
 cask "010-editor"
 cask "ngrok"
-
-# Claude Code is installed by scripts/30-post.sh (not on Homebrew).

@@ -48,7 +48,7 @@ cat <<EOF
   Your AntaresOS is ready. Next steps:
 
     ${C_BLUE}1.${C_RESET} Open a new terminal (Ghostty).
-    ${C_BLUE}2.${C_RESET} Run ${C_GREEN}dev${C_RESET} for the editor + terminal + Claude Code layout.
+    ${C_BLUE}2.${C_RESET} Run ${C_GREEN}dev${C_RESET} for the editor + terminals layout.
     ${C_BLUE}3.${C_RESET} Run ${C_GREEN}flutter doctor${C_RESET} to check the mobile toolchain.
 
   Update later:  ${C_GREEN}antares-update${C_RESET}  (or ./update.sh)

@@ -50,7 +50,6 @@ black.
 | **Multiplexer** | [Zellij](https://zellij.dev) | panes and persistent sessions |
 | **Shell** | zsh + [starship](https://starship.rs) | prompt, autosuggestions, syntax highlighting |
 | **Editor** | [Neovim](https://neovim.io) + [LazyVim](https://lazyvim.org) | modal editing in the terminal |
-| **Agent** | [Claude Code](https://claude.com/claude-code) | AI in the loop, in its own pane |
 | **Navigation** | `fzf` · `zoxide` · `eza` · `bat` · `lazygit` · `ripgrep` · `fd` | mouse-free movement |
 
 ---
@@ -69,7 +68,7 @@ cd ~/Github/AntaresOS
 00 · install Homebrew (if missing)
 10 · brew bundle      → every package in the Brewfile
 20 · GNU Stow         → symlink the dotfiles into $HOME
-30 · post-install     → oh-my-zsh, plugins, fvm, Claude Code,
+30 · post-install     → oh-my-zsh, plugins, fvm,
                         git identity, and a LazyVim plugin warm-up
 ```
 
@@ -84,7 +83,7 @@ demand:
 
 | Command | What it does |
 |---|---|
-| `dev` | opens the **editor + terminal + Claude Code** layout (Zellij session `antares`) |
+| `dev` | opens the **editor + two terminals** layout (Zellij session `antares`) |
 | `fdev` | opens the **Flutter** layout (editor + `flutter run` + devices) |
 | `v` / `nvim` | launches the editor (LazyVim) |
 | `lg` | [lazygit](https://github.com/jesseduffield/lazygit) |
@@ -142,8 +141,7 @@ AntaresOS/
 │   ├── starship/           # Matrix prompt
 │   ├── ghostty/            # terminal config + palette
 │   ├── zellij/             # config + layouts (dev, flutter)
-│   ├── nvim/               # LazyVim + base16 Matrix + flutter-tools
-│   └── claude/             # global CLAUDE.md (environment context)
+│   └── nvim/               # LazyVim + base16 Matrix + flutter-tools
 └── assets/                 # logo
 ```
 

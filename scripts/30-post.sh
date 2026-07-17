@@ -29,20 +29,6 @@ else
   warn "dart/flutter ainda não disponível — instale o fvm depois: dart pub global activate fvm"
 fi
 
-step "Claude Code"
-if have claude; then
-  ok "Claude Code já instalado"
-else
-  info "Instalando Claude Code…"
-  if curl -fsSL https://claude.ai/install.sh | bash; then
-    ok "Claude Code instalado"
-  elif have npm; then
-    npm install -g @anthropic-ai/claude-code && ok "Claude Code instalado (npm)"
-  else
-    warn "Não consegui instalar o Claude Code. Veja: https://claude.com/claude-code"
-  fi
-fi
-
 step "Tema (bat/delta)"
 info "bat e delta usam o tema 'base16' (herdam os ANSI verdes do terminal)"
 have bat && ok "nada a baixar — tema base16 é embutido"

@@ -8,4 +8,8 @@
 # Locks/artefatos
 Brewfile.lock.json
 
+# Estado de runtime do Neovim (gerado localmente por máquina)
+stow/nvim/.config/nvim/lazy-lock.json
+stow/nvim/.config/nvim/lazyvim.json
+
 # Nada de identidade/segredos aqui (eles vivem fora do repo, em ~/.gitconfig.local)

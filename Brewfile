@@ -19,6 +19,7 @@ brew "git-delta"
 brew "lazygit"
 brew "jq"
 brew "tldr"
+brew "navi"
 
 # Toolchain
 brew "awscli"

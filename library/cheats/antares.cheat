@@ -1,0 +1,22 @@
+% antares, zellij, ambiente
+
+# Abrir o ambiente de desenvolvimento
+dev
+
+# Abrir o layout Flutter
+fdev
+
+# Atualizar todo o ambiente
+antares-update
+
+# Abrir a biblioteca no editor
+lib
+
+# Anotação rápida
+note "<texto>"
+
+# Listar sessões do Zellij
+zellij list-sessions
+
+# Apagar uma sessão do Zellij
+zellij delete-session <nome> --force

@@ -1,0 +1,19 @@
+% git
+
+# Status compacto
+git status -sb
+
+# Adicionar tudo e commitar com mensagem
+git add -A && git commit -m "<mensagem>"
+
+# Log em grafo
+git log --oneline --graph --decorate --all
+
+# Criar e trocar para uma branch
+git switch -c <branch>
+
+# Desfazer o último commit mantendo as mudanças
+git reset --soft HEAD~1
+
+# Descartar mudanças de um arquivo
+git checkout -- <arquivo>

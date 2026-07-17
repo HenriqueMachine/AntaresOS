@@ -1,0 +1,22 @@
+% flutter, dart, mobile
+
+# Rodar o app
+flutter run
+
+# Limpar e reinstalar dependências
+flutter clean && flutter pub get
+
+# Gerar código (build_runner)
+flutter pub run build_runner build --delete-conflicting-outputs
+
+# Observar e gerar código continuamente
+flutter pub run build_runner watch --delete-conflicting-outputs
+
+# Listar dispositivos
+flutter devices
+
+# Diagnóstico completo do toolchain
+flutter doctor -v
+
+# Trocar a versão do Flutter no projeto (fvm)
+fvm use <versao>

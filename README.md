@@ -83,7 +83,7 @@ demand:
 
 | Command | What it does |
 |---|---|
-| `dev` | opens the **editor + two terminals** layout (Zellij session `antares`) |
+| `dev` | opens the workspace — three Zellij tabs: **`edit`** (Neovim), **`term`** (two terminals), **`lib`** (the library) |
 | `fdev` | opens the **Flutter** layout (editor + `flutter run` + devices) |
 | `v` / `nvim` | launches the editor (LazyVim) |
 | `lg` | [lazygit](https://github.com/jesseduffield/lazygit) |
@@ -122,6 +122,23 @@ In Neovim, `<leader>F` opens the Flutter group (run, restart, devices, outline).
 
 ---
 
+## Library — commands &amp; snippets
+
+A personal, version-controlled library of runnable commands and code snippets, kept
+in `library/` and synced with the environment.
+
+| Command | What it does |
+|---|---|
+| `Ctrl-g` | open [navi](https://github.com/denisidoro/navi) — fuzzy-search a command and insert it (editable `<placeholders>`) |
+| `note "text"` | append a timestamped line to `library/notes/inbox.md` (no argument opens the file) |
+| `lib` | open the library in Neovim |
+
+- **Commands** live in `library/cheats/*.cheat` (navi format, grouped by `% tags`).
+- **Snippets** live in `library/snippets/*.md`, grouped by topic.
+- The `lib` tab of `dev` opens the library ready to edit.
+
+---
+
 ## Repository layout
 
 ```
@@ -136,12 +153,13 @@ AntaresOS/
 │   ├── 20-stow.sh          # symlinks (backs up conflicts)
 │   └── 30-post.sh          # frameworks, agent, identity
 ├── stow/                   # each folder is one GNU Stow package
-│   ├── zsh/                # .zshrc + .zsh/{exports,aliases,flutter,init}.zsh
+│   ├── zsh/                # .zshrc + .zsh/{exports,aliases,flutter,init,library}.zsh
 │   ├── git/                # .gitconfig (+ delta) + .gitignore_global
 │   ├── starship/           # Matrix prompt
 │   ├── ghostty/            # terminal config + palette
 │   ├── zellij/             # config + layouts (dev, flutter)
 │   └── nvim/               # LazyVim + base16 Matrix + flutter-tools
+├── library/                # cheats (navi) · snippets · notes
 └── assets/                 # logo
 ```
 

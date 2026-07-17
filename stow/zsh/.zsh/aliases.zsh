@@ -52,6 +52,7 @@ antares() {
     open|dev)     dev ;;
     flutter|fl)   fdev ;;
     proj)         proj ;;
+    proxy)        _antares_proxy "${@:2}" ;;
     update|up)    ( cd "$ANTARES_DIR" && ./update.sh ) ;;
     edit)         nvim "$ANTARES_DIR" ;;
     codex)        codex-build ;;
@@ -61,6 +62,7 @@ antares() {
       print "  open      abre o ambiente (editor + terminais + lib)"
       print "  flutter   layout Flutter"
       print "  proj      sessionizer de projetos"
+      print "  proxy     inspeção de tráfego (mitmproxy) — 'antares proxy help'"
       print "  update    atualiza tudo (git + brew + stow + plugins)"
       print "  edit      edita os dotfiles no Neovim"
       print "  codex     regenera os snippets do Codex"

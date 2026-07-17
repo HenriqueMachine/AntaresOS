@@ -162,6 +162,28 @@ Also: **commands** in `library/cheats/*.cheat` (navi) and free-form **snippets**
 
 ---
 
+## Antares Proxy
+
+An HTTP/HTTPS traffic inspector (the keyboard-driven, open-source Charles), built on
+[mitmproxy](https://mitmproxy.org).
+
+| Command | What it does |
+|---|---|
+| `antares proxy` | start the TUI (auto-saves the captured flows) |
+| `antares proxy web` | browser UI (mitmweb) |
+| `antares proxy mock` | start with the **mock/rewrite** addon (Charles' Map Local) |
+| `antares proxy open [file]` | reopen/replay saved flows (fzf if omitted) |
+| `antares proxy cert` | show the CA cert and how to trust it |
+| `antares proxy android` / `ios` / `device` | set up the emulator / simulator / physical device |
+| `antares proxy off` | remove the emulator proxy |
+| `pxy` | open the dedicated Zellij layout |
+
+**Mock/rewrite** rules live in `library/proxy/mocks.json` — match a URL (substring or
+regex) and serve a local response without hitting the server. **Flutter** ignores the
+system proxy/CA, so use the `flproxy` Codex snippet to route the debug build through it.
+
+---
+
 ## Repository layout
 
 ```

@@ -22,6 +22,7 @@ brew "tldr"
 brew "navi"
 
 # Daily / DevX
+brew "mitmproxy"  # inspeção de tráfego HTTP/HTTPS (estilo Charles)
 brew "atuin"      # histórico de shell turbinado (Ctrl-R)
 brew "direnv"     # env por diretório (.envrc)
 brew "mise"       # versões de linguagens por projeto

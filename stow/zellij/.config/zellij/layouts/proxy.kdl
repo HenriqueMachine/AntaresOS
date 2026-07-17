@@ -1,0 +1,16 @@
+// AntaresOS · layout "proxy" — mitmproxy + terminal de apoio
+
+layout {
+    tab name="proxy" focus=true {
+        pane split_direction="vertical" {
+            pane size="72%" name="mitmproxy" {
+                command "zsh"
+                args "-ic" "antares proxy"
+            }
+            pane name="tools" {
+                command "zsh"
+                args "-ic" "echo '  proxy-cert · proxy-android · proxy-off · adb · curl'; exec zsh"
+            }
+        }
+    }
+}

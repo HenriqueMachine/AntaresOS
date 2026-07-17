@@ -16,7 +16,7 @@ serialize_pane_viewport true
 plugins {
     autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
         is_enabled true
-        triggers "nvim|vim|fzf|zoxide|atuin|lazygit|git|less|man"
+        triggers "nvim|vim|fzf|zoxide|atuin|lazygit|git|less|man|mitmproxy|mitmweb"
         reaction_seconds "0.3"
         print_to_log false
     }

@@ -1,0 +1,16 @@
+[
+  {
+    "enabled": false,
+    "match": "api.exemplo.com/ping",
+    "status": 200,
+    "headers": { "Content-Type": "application/json" },
+    "body": "{\"pong\": true, \"mock\": \"antares\"}"
+  },
+  {
+    "enabled": false,
+    "match": "/users/\\d+$",
+    "status": 200,
+    "headers": { "Content-Type": "application/json" },
+    "body_file": "mocks/user.json"
+  }
+]

@@ -45,6 +45,27 @@ alias c='clear'
 alias reload='exec zsh'
 
 export ANTARES_DIR="${ANTARES_DIR:-$HOME/Github/AntaresOS}"
-alias antares="cd $ANTARES_DIR"
-alias antares-update="(cd $ANTARES_DIR && ./update.sh)"
-alias antares-edit="nvim $ANTARES_DIR"
+
+# antares — mini-CLI do ambiente
+antares() {
+  case "$1" in
+    open|dev)     dev ;;
+    flutter|fl)   fdev ;;
+    proj)         proj ;;
+    update|up)    ( cd "$ANTARES_DIR" && ./update.sh ) ;;
+    edit)         nvim "$ANTARES_DIR" ;;
+    codex)        codex-build ;;
+    cd)           cd "$ANTARES_DIR" ;;
+    ""|help|-h|--help)
+      print "antares — ambiente AntaresOS"
+      print "  open      abre o ambiente (editor + terminais + lib)"
+      print "  flutter   layout Flutter"
+      print "  proj      sessionizer de projetos"
+      print "  update    atualiza tudo (git + brew + stow + plugins)"
+      print "  edit      edita os dotfiles no Neovim"
+      print "  codex     regenera os snippets do Codex"
+      print "  cd        vai para o repositório"
+      ;;
+    *) print "antares: subcomando '$1' desconhecido — veja 'antares help'"; return 1 ;;
+  esac
+}

@@ -81,17 +81,19 @@ cd ~/Github/AntaresOS
 Opening a terminal drops you into a clean shell. The environment is summoned on
 demand:
 
+`antares` is the environment's mini-CLI (`antares` with no argument prints help):
+
 | Command | What it does |
 |---|---|
-| `dev` | opens the workspace — three Zellij tabs: **`edit`** (Neovim), **`term`** (two terminals), **`lib`** (the library) |
-| `fdev` | opens the **Flutter** layout (editor + `flutter run` + devices) |
-| `proj` | fuzzy-pick a project under `~/Github` → open/attach its Zellij session (auto Flutter layout) |
+| `antares open` (or `dev`) | opens the workspace — three Zellij tabs: **`edit`** (Neovim), **`term`** (two terminals), **`lib`** (the library) |
+| `antares flutter` (or `fdev`) | opens the **Flutter** layout (editor + `flutter run` + devices) |
+| `antares proj` (or `proj`) | fuzzy-pick a project under `~/Github` → open/attach its Zellij session (auto Flutter layout) |
 | `v` / `nvim` | launches the editor (LazyVim) |
 | `lg` | [lazygit](https://github.com/jesseduffield/lazygit) |
 | `z <dir>` | smart directory jump ([zoxide](https://github.com/ajeetdsouza/zoxide)) · `Ctrl-R` history ([atuin](https://github.com/atuinsh/atuin)) |
 | `run <file>` · `scratch <ext>` · `repl-py/clj/kt` | run code / open a scratch buffer / language REPLs |
 | `top` · `sysinfo` | system monitor (btop) · machine info (fastfetch) |
-| `antares-update` | update the whole environment (`git pull` + brew + stow + plugins) |
+| `antares update` | update the whole environment (`git pull` + brew + stow + plugins) |
 
 <details>
 <summary><b>Shell &amp; navigation shortcuts</b></summary>
@@ -134,7 +136,7 @@ environment.
 |---|---|
 | `<trigger>` (in Neovim) | expand a **Codex** snippet — type e.g. `stless` → a `StatelessWidget` |
 | `snip` | fuzzy-search the Codex, preview the explanation + code, copy it |
-| `codex-build` | regenerate the Codex snippets from the `.md` sources (runs on `antares-update`) |
+| `codex-build` | regenerate the Codex snippets from the `.md` sources (runs on `antares update`) |
 | `Ctrl-g` | open [navi](https://github.com/denisidoro/navi) — fuzzy-search a command and insert it |
 | `note "text"` | append a timestamped line to `library/notes/inbox.md` |
 | `lib` | open the library in Neovim |
@@ -200,7 +202,7 @@ it. Machine-specific overrides go in **`~/.zshrc.local`**.
 
 ## Extending
 
-- **New package?** add it to the `Brewfile` and run `antares-update`.
+- **New package?** add it to the `Brewfile` and run `antares update`.
 - **New config?** drop the file into `stow/<package>/` and run `./install.sh --dotfiles`.
 - **New package group?** create `stow/<name>/` mirroring its path from `$HOME`, then
   add the name to the `PACKAGES` array in `scripts/20-stow.sh`.

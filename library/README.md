@@ -32,7 +32,7 @@ o código, com placeholders ${1:assim}
 **Uso:**
 - No nvim: digite o `trigger` (ex: `stless`) e aceite a sugestão → expande.
 - **`snip`** — busca (fzf) por título/gatilho, mostra explicação + código no preview e **copia**.
-- **`codex-build`** — regenera após editar os `.md` (roda sozinho no `antares-update`).
+- **`codex-build`** — regenera após editar os `.md` (roda sozinho no `antares update`).
 
 ## Outros
 - **`Ctrl-g`** — navi: filtra um comando e insere na linha.

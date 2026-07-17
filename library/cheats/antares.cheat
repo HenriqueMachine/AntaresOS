@@ -7,7 +7,7 @@ dev
 fdev
 
 # Atualizar todo o ambiente
-antares-update
+antares update
 
 # Abrir a biblioteca no editor
 lib

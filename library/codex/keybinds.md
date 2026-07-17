@@ -36,3 +36,22 @@ Espaço gg          lazygit
 Espaço r           rodar bloco (sniprun)
 i / Esc / :w       inserir / normal / salvar
 ```
+
+## mitmproxy — atalhos (Antares Proxy)
+- trigger: keys-proxy
+- tags: proxy, mitmproxy, keybind
+
+Atalhos da TUI do mitmproxy (`antares proxy`). Aperte `?` dentro dela para ver todos.
+
+```text
+? / q              ajuda (todos os atalhos) / voltar-sair
+↑ ↓ (ou j k)       navegar na lista de requests
+Enter              abrir o flow (Request / Response / Detail)
+Tab                alternar entre as abas do flow
+f                  filtro de exibição (~d dominio · ~u /path · ~m GET)
+r                  replay do request selecionado
+d / z              apagar o flow / limpar a lista toda
+w                  salvar os flows num arquivo
+e                  editar o flow (método, headers, corpo)
+:                  linha de comando (ex: :export.file curl @focus /tmp/req)
+```

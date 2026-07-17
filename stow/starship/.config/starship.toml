@@ -10,7 +10,7 @@ $directory\
 $git_branch\
 $git_status\
 [](fg:surface1 bg:surface2)\
-$flutter\
+$dart\
 $nodejs\
 $python\
 [](fg:surface2 bg:none)\
@@ -51,7 +51,7 @@ format = '[ $symbol $branch ]($style)'
 style = "bg:surface1 fg:red"
 format = '[$all_status$ahead_behind ]($style)'
 
-[flutter]
+[dart]
 symbol = ""
 style = "bg:surface2 fg:sky"
 format = '[ $symbol ($version) ]($style)'

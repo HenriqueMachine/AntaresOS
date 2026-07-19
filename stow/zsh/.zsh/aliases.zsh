@@ -58,6 +58,7 @@ antares() {
     update|up)    ( cd "$ANTARES_DIR" && ./update.sh ) ;;
     edit)         nvim "$ANTARES_DIR" ;;
     codex)        codex-build ;;
+    codex-open|estudos)  estudos ;;
     cd)           cd "$ANTARES_DIR" ;;
     ""|help|-h|--help)
       print "antares — ambiente AntaresOS"
@@ -69,6 +70,7 @@ antares() {
       print "  update    atualiza tudo (git + brew + stow + plugins)"
       print "  edit      edita os dotfiles no Neovim"
       print "  codex     regenera os snippets do Codex"
+      print "  estudos   abre o vault Codex de Estudos (Obsidian)"
       print "  cd        vai para o repositório"
       ;;
     *) print "antares: subcomando '$1' desconhecido — veja 'antares help'"; return 1 ;;

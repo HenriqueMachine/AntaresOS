@@ -28,6 +28,7 @@ brew "direnv"     # env por diretório (.envrc)
 brew "mise"       # versões de linguagens por projeto
 brew "btop"       # monitor de sistema
 brew "fastfetch"  # info da máquina
+brew "terminal-notifier"  # notificações de desktop p/ comandos longos (notify.zsh)
 
 # Toolchain
 brew "awscli"

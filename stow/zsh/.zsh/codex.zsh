@@ -2,6 +2,17 @@
 
 alias codex-build='bash "${ANTARES_DIR:-$HOME/Github/AntaresOS}/scripts/codex-build.sh"'
 
+# abre o vault "Codex de Estudos" (Obsidian) — no app se instalado, senão no nvim
+export ESTUDOS_DIR="${ESTUDOS_DIR:-$HOME/Documents/Codex-Estudos}"
+estudos() {
+  if [[ ! -d "$ESTUDOS_DIR" ]]; then print "vault não encontrado: $ESTUDOS_DIR"; return 1; fi
+  if [[ -d "/Applications/Obsidian.app" ]]; then
+    open "obsidian://open?vault=${ESTUDOS_DIR:t}"
+  else
+    nvim "$ESTUDOS_DIR"
+  fi
+}
+
 # busca no Codex (fzf) e copia o snippet pro clipboard
 snip() {
   local idx="${ANTARES_LIB:-$HOME/Github/AntaresOS/library}/codex/.build/index.json"

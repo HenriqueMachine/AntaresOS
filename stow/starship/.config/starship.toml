@@ -11,8 +11,11 @@ $git_branch\
 $git_status\
 [](fg:surface1 bg:surface2)\
 $dart\
+$kotlin\
+$java\
 $nodejs\
 $python\
+$docker_context\
 [](fg:surface2 bg:none)\
 $fill\
 $cmd_duration\
@@ -55,6 +58,22 @@ format = '[$all_status$ahead_behind ]($style)'
 symbol = ""
 style = "bg:surface2 fg:sky"
 format = '[ $symbol ($version) ]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:surface2 fg:magenta"
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = ""
+style = "bg:surface2 fg:red"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:surface2 fg:sky"
+format = '[ $symbol$context ]($style)'
+only_with_files = true
 
 [nodejs]
 symbol = ""

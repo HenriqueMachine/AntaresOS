@@ -1,0 +1,121 @@
+// AntaresOS · layout "work" — Foodbot + CourtHub em paralelo
+// 5 tabs: FOODBOT⟩AGENTS · FOODBOT⟩STACK · COURTHUB⟩AGENTS · COURTHUB⟩STACK · ⟩NVIM
+// Abrir com:  zellij -l work
+
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+                format_left  "{mode}#[bg=#000000] {tabs}"
+                format_right "#[bg=#000000]{command_git} #[fg=#7cffa0,bg=#000000]󰥔 {datetime}"
+                format_space "#[bg=#000000]"
+                border_enabled "false"
+
+                mode_normal  "#[bg=#00ff41,fg=#000000,bold] NORMAL "
+                mode_locked  "#[bg=#ff9f45,fg=#000000,bold] LOCKED "
+                mode_pane    "#[bg=#35c9ff,fg=#000000,bold] PANE "
+                mode_tab     "#[bg=#48ffe0,fg=#000000,bold] TAB "
+                mode_resize  "#[bg=#f5d76e,fg=#000000,bold] RESIZE "
+                mode_scroll  "#[bg=#ff6fd8,fg=#000000,bold] SCROLL "
+                mode_search  "#[bg=#ff6fd8,fg=#000000,bold] SEARCH "
+                mode_session "#[bg=#c8ffd4,fg=#000000,bold] SESSION "
+
+                tab_normal   "#[fg=#585b70,bg=#000000] {name} "
+                tab_active   "#[fg=#00ff41,bg=#000000,bold] {name} "
+
+                command_git_command  "git rev-parse --abbrev-ref HEAD"
+                command_git_format   "#[fg=#48ffe0,bg=#000000] {stdout}"
+                command_git_interval "5"
+
+                datetime        "#[fg=#7cffa0,bg=#000000]{format}"
+                datetime_format "%H:%M"
+            }
+        }
+        children
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+
+    // 1 · FOODBOT⟩AGENTS — 2 claudes lado a lado (auto-launch)
+    tab name="FOODBOT⟩AGENTS" focus=true {
+        pane split_direction="vertical" {
+            pane name="claude-1" {
+                command "zsh"
+                args "-ic" "cd ~/Foodbot; claude; exec zsh"
+            }
+            pane name="claude-2" {
+                command "zsh"
+                args "-ic" "cd ~/Foodbot; claude; exec zsh"
+            }
+        }
+    }
+
+    // 2 · FOODBOT⟩STACK — front | (back / term) — hint, não auto
+    tab name="FOODBOT⟩STACK" {
+        pane split_direction="vertical" {
+            pane size="55%" name="front" {
+                command "zsh"
+                args "-ic" "cd ~/Foodbot; echo '▶  make frontend   (flutter · foodbot-app)'; exec zsh"
+            }
+            pane split_direction="horizontal" {
+                pane name="back" {
+                    command "zsh"
+                    args "-ic" "cd ~/Foodbot; echo '▶  make backend    (docker · foodbot-service)'; exec zsh"
+                }
+                pane name="term" size="40%" {
+                    command "zsh"
+                    args "-ic" "cd ~/Foodbot; exec zsh"
+                }
+            }
+        }
+    }
+
+    // 3 · COURTHUB⟩AGENTS — 2 claudes lado a lado (auto-launch)
+    tab name="COURTHUB⟩AGENTS" {
+        pane split_direction="vertical" {
+            pane name="claude-1" {
+                command "zsh"
+                args "-ic" "cd ~/Github/CourtHub; claude; exec zsh"
+            }
+            pane name="claude-2" {
+                command "zsh"
+                args "-ic" "cd ~/Github/CourtHub; claude; exec zsh"
+            }
+        }
+    }
+
+    // 4 · COURTHUB⟩STACK — infra | (bff / core) — hint, não auto
+    tab name="COURTHUB⟩STACK" {
+        pane split_direction="vertical" {
+            pane size="55%" name="infra" {
+                command "zsh"
+                args "-ic" "cd ~/Github/CourtHub; echo '▶  make courthub-service   (Postgres + Redis)'; exec zsh"
+            }
+            pane split_direction="horizontal" {
+                pane name="bff" {
+                    command "zsh"
+                    args "-ic" "cd ~/Github/CourtHub; echo \"▶  ./gradlew :bff:bootRun --args='--spring.profiles.active=local'\"; exec zsh"
+                }
+                pane name="core" {
+                    command "zsh"
+                    args "-ic" "cd ~/Github/CourtHub; echo \"▶  ./gradlew :core:bootRun --args='--spring.profiles.active=local'\"; exec zsh"
+                }
+            }
+        }
+    }
+
+    // 5 · ⟩NVIM — editor (~/) | cheatsheet de atalhos
+    tab name="⟩NVIM" {
+        pane split_direction="vertical" {
+            pane size="65%" name="editor" {
+                command "zsh"
+                args "-ic" "cd ~; nvim ."
+            }
+            pane size="35%" name="atalhos" {
+                command "zsh"
+                args "-ic" "nvim ~/Github/AntaresOS/library/cheats/nvim-atalhos.md"
+            }
+        }
+    }
+}

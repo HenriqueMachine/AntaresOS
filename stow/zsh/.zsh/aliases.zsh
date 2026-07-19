@@ -37,6 +37,7 @@ _zj_open() {
 }
 dev()  { _zj_open antares dev; }
 fdev() { _zj_open flutter flutter; }
+work() { _zj_open work work; }
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -50,6 +51,7 @@ export ANTARES_DIR="${ANTARES_DIR:-$HOME/Github/AntaresOS}"
 antares() {
   case "$1" in
     open|dev)     dev ;;
+    work)         work ;;
     flutter|fl)   fdev ;;
     proj)         proj ;;
     proxy)        _antares_proxy "${@:2}" ;;
@@ -60,6 +62,7 @@ antares() {
     ""|help|-h|--help)
       print "antares — ambiente AntaresOS"
       print "  open      abre o ambiente (editor + terminais + lib)"
+      print "  work      Foodbot + CourtHub em paralelo (5 tabs)"
       print "  flutter   layout Flutter"
       print "  proj      sessionizer de projetos"
       print "  proxy     inspeção de tráfego (mitmproxy) — 'antares proxy help'"

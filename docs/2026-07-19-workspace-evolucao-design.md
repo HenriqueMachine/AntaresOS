@@ -15,11 +15,11 @@ já existia — este doc registra o alvo completo e marca o que é delta.
 - ⬜ **Nvim** — override de `lualine` no tema Matrix + habilitar `fzf-lua` (extra LazyVim).
 - ⬜ **antares codex-open** — abre o vault Obsidian `~/Documents/Codex-Estudos` (Obsidian se instalado, senão nvim).
 
-## Fase 2 — Estrutura do layout `work`
-- **Tab `⟩HOME`** (1ª): fastfetch/onefetch + `git status` resumido dos 2 repos + TODOs.
-- **Tab `⟩LAB`**: REPLs Kotlin (`kotlinc`), Dart, Clojure (`clj`) + buffer scratch (`~/.scratch`).
-- **Statusbar (zjstatus) rica**: indicador de serviços/portas (8080 bff/core, Postgres 5432, Redis 6379, flutter) + path/hostname + CPU/RAM/bateria.
-- Instalar: `onefetch`.
+## Fase 2 — Estrutura do layout `work` ✅
+- ✅ **Tab `⟩HOME`** (1ª, foco): `scripts/home.sh` — fastfetch + git status dos repos (foodbot-app/service/antares + courthub + antares-os) + TODOs do inbox.
+- ✅ **Tab `⟩LAB`**: `scratch-init.sh` semeia `~/.scratch` (kt/clj/dart/py/sh); panes REPL Kotlin (`kotlinc`), Clojure (`clj`), Dart (run — sem REPL nativo) em modo hint.
+- ✅ **Statusbar rica**: `statusline-services.sh` (portas 8080/5432/6379 ✓/✗) + `statusline-sys.sh` (CPU/RAM/bateria) + host + `{session}` no zjstatus.
+- Usa `fastfetch` (já instalado) em vez de `onefetch`.
 
 ## Fase 3 — Ferramentas de projeto
 - **lazydocker** (+ `antares docker`) — containers dos 2 projetos.

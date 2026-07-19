@@ -1,13 +1,14 @@
 // AntaresOS · layout "work" — Foodbot + CourtHub em paralelo
-// 5 tabs: FOODBOT⟩AGENTS · FOODBOT⟩STACK · COURTHUB⟩AGENTS · COURTHUB⟩STACK · ⟩NVIM
+// 7 tabs: ⟩HOME · FOODBOT⟩AGENTS · FOODBOT⟩STACK · COURTHUB⟩AGENTS · COURTHUB⟩STACK · ⟩LAB · ⟩NVIM
+// Statusbar: sessão · serviços(portas) · sistema(cpu/ram/bat) · git · host · hora
 // Abrir com:  zellij -l work
 
 layout {
     default_tab_template {
         pane size=1 borderless=true {
             plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
-                format_left  "{mode}#[bg=#000000] {tabs}"
-                format_right "#[bg=#000000]{command_git} #[fg=#7cffa0,bg=#000000]󰥔 {datetime}"
+                format_left  "{mode}#[fg=#48ffe0,bg=#000000] {session} #[bg=#000000]{tabs}"
+                format_right "#[bg=#000000]{command_svc}  {command_sys}  {command_git} #[fg=#585b70,bg=#000000]{command_host} #[fg=#7cffa0,bg=#000000]󰥔 {datetime}"
                 format_space "#[bg=#000000]"
                 border_enabled "false"
 
@@ -27,6 +28,18 @@ layout {
                 command_git_format   "#[fg=#48ffe0,bg=#000000] {stdout}"
                 command_git_interval "5"
 
+                command_svc_command  "/Users/henriquepaixao/Github/AntaresOS/scripts/statusline-services.sh"
+                command_svc_format   "#[fg=#48ffe0,bg=#000000]{stdout}"
+                command_svc_interval "5"
+
+                command_sys_command  "/Users/henriquepaixao/Github/AntaresOS/scripts/statusline-sys.sh"
+                command_sys_format   "#[fg=#7cffa0,bg=#000000]{stdout}"
+                command_sys_interval "10"
+
+                command_host_command "/bin/hostname -s"
+                command_host_format  "#[fg=#585b70,bg=#000000]@{stdout}"
+                command_host_interval "0"
+
                 datetime        "#[fg=#7cffa0,bg=#000000]{format}"
                 datetime_format "%H:%M"
             }
@@ -37,8 +50,16 @@ layout {
         }
     }
 
+    // 0 · ⟩HOME — dashboard (fastfetch + git dos repos + TODOs)
+    tab name="⟩HOME" focus=true {
+        pane name="dashboard" {
+            command "zsh"
+            args "-ic" "$HOME/Github/AntaresOS/scripts/home.sh; exec zsh"
+        }
+    }
+
     // 1 · FOODBOT⟩AGENTS — 2 claudes lado a lado (auto-launch)
-    tab name="FOODBOT⟩AGENTS" focus=true {
+    tab name="FOODBOT⟩AGENTS" {
         pane split_direction="vertical" {
             pane name="agent-driver" {
                 command "zsh"
@@ -105,7 +126,31 @@ layout {
         }
     }
 
-    // 5 · ⟩NVIM — editor (~/) | cheatsheet de atalhos
+    // 5 · ⟩LAB — scratch + REPLs (Kotlin / Clojure / Dart) — hint, não auto
+    tab name="⟩LAB" {
+        pane split_direction="vertical" {
+            pane size="50%" name="scratch" {
+                command "zsh"
+                args "-ic" "$HOME/Github/AntaresOS/scripts/scratch-init.sh >/dev/null; cd ~/.scratch; nvim ."
+            }
+            pane split_direction="horizontal" {
+                pane name="kotlin" {
+                    command "zsh"
+                    args "-ic" "cd ~/.scratch; echo '▶  kotlinc   (REPL Kotlin — Enter p/ iniciar a JVM)'; exec zsh"
+                }
+                pane name="clojure" {
+                    command "zsh"
+                    args "-ic" "cd ~/.scratch; echo '▶  clj       (REPL Clojure)'; exec zsh"
+                }
+                pane name="dart" {
+                    command "zsh"
+                    args "-ic" "cd ~/.scratch; echo '▶  dart run scratch.dart   (Dart não tem REPL nativo)'; exec zsh"
+                }
+            }
+        }
+    }
+
+    // 6 · ⟩NVIM — editor (~/) | cheatsheet de atalhos
     tab name="⟩NVIM" {
         pane split_direction="vertical" {
             pane size="65%" name="editor" {

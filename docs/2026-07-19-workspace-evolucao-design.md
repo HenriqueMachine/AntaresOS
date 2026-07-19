@@ -21,10 +21,10 @@ já existia — este doc registra o alvo completo e marca o que é delta.
 - ✅ **Statusbar rica**: `statusline-services.sh` (portas 8080/5432/6379 ✓/✗) + `statusline-sys.sh` (CPU/RAM/bateria) + host + `{session}` no zjstatus.
 - Usa `fastfetch` (já instalado) em vez de `onefetch`.
 
-## Fase 3 — Ferramentas de projeto
-- **lazydocker** (+ `antares docker`) — containers dos 2 projetos.
-- **bruno CLI** (`bru run`) — coleções em `foodbot-service/bruno` e `CourtHub/bruno`. Instalar `@usebruno/cli` (npm).
-- **Observability CourtHub** — pane com `/actuator/health` + logs OTLP/Prometheus.
+## Fase 3 — Ferramentas de projeto ✅
+- ✅ **lazydocker** (`antares docker`) — no Brewfile; containers dos 2 projetos.
+- ✅ **bruno CLI** (`antares bruno <fb|ch>` → cd na coleção; `bru run …`) — instalado via npm + step no `30-post.sh`.
+- ✅ **Observability CourtHub** — `scripts/courthub-observe.sh` (`antares health`, watch de `/actuator/health`) + pane `observe` na tab COURTHUB⟩STACK.
 
 ## Fora de escopo
 - IA no editor (CodeCompanion/Avante/Copilot) — dispensado por ora.

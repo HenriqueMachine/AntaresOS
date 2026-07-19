@@ -60,6 +60,16 @@ else
   ok "criado ~/.gitconfig.local ($name <$email>)"
 fi
 
+step "Bruno CLI (bru)"
+if have bru; then
+  ok "bru já instalado ($(bru --version 2>/dev/null))"
+elif have npm; then
+  info "Instalando @usebruno/cli via npm…"
+  npm install -g @usebruno/cli && ok "bru instalado" || warn "não consegui instalar o bru agora"
+else
+  warn "npm não encontrado — instale depois: npm install -g @usebruno/cli"
+fi
+
 step "Codex"
 bash "$ANTARES_DIR/scripts/codex-build.sh" || warn "não consegui gerar o Codex"
 

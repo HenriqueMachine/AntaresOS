@@ -122,6 +122,10 @@ layout {
                     command "zsh"
                     args "-ic" "cd ~/Github/CourtHub; echo \"▶  ./gradlew :core:bootRun --args='--spring.profiles.active=local'\"; exec zsh"
                 }
+                pane name="observe" {
+                    command "zsh"
+                    args "-ic" "cd ~/Github/CourtHub; echo '▶  antares health   (watch /actuator/health)'; exec zsh"
+                }
             }
         }
     }

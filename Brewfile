@@ -29,6 +29,7 @@ brew "mise"       # versões de linguagens por projeto
 brew "btop"       # monitor de sistema
 brew "fastfetch"  # info da máquina
 brew "terminal-notifier"  # notificações de desktop p/ comandos longos (notify.zsh)
+brew "lazydocker"         # TUI p/ docker (antares docker)
 
 # Toolchain
 brew "awscli"

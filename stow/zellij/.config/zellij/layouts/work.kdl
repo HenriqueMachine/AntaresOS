@@ -40,11 +40,11 @@ layout {
     // 1 · FOODBOT⟩AGENTS — 2 claudes lado a lado (auto-launch)
     tab name="FOODBOT⟩AGENTS" focus=true {
         pane split_direction="vertical" {
-            pane name="claude-1" {
+            pane name="agent-driver" {
                 command "zsh"
                 args "-ic" "cd ~/Foodbot; claude; exec zsh"
             }
-            pane name="claude-2" {
+            pane name="agent-navigator" {
                 command "zsh"
                 args "-ic" "cd ~/Foodbot; claude; exec zsh"
             }
@@ -54,16 +54,16 @@ layout {
     // 2 · FOODBOT⟩STACK — front | (back / term) — hint, não auto
     tab name="FOODBOT⟩STACK" {
         pane split_direction="vertical" {
-            pane size="55%" name="front" {
+            pane size="55%" name="frontend" {
                 command "zsh"
                 args "-ic" "cd ~/Foodbot; echo '▶  make frontend   (flutter · foodbot-app)'; exec zsh"
             }
             pane split_direction="horizontal" {
-                pane name="back" {
+                pane name="backend" {
                     command "zsh"
                     args "-ic" "cd ~/Foodbot; echo '▶  make backend    (docker · foodbot-service)'; exec zsh"
                 }
-                pane name="term" size="40%" {
+                pane name="shell" size="40%" {
                     command "zsh"
                     args "-ic" "cd ~/Foodbot; exec zsh"
                 }
@@ -74,11 +74,11 @@ layout {
     // 3 · COURTHUB⟩AGENTS — 2 claudes lado a lado (auto-launch)
     tab name="COURTHUB⟩AGENTS" {
         pane split_direction="vertical" {
-            pane name="claude-1" {
+            pane name="agent-driver" {
                 command "zsh"
                 args "-ic" "cd ~/Github/CourtHub; claude; exec zsh"
             }
-            pane name="claude-2" {
+            pane name="agent-navigator" {
                 command "zsh"
                 args "-ic" "cd ~/Github/CourtHub; claude; exec zsh"
             }
@@ -88,16 +88,16 @@ layout {
     // 4 · COURTHUB⟩STACK — infra | (bff / core) — hint, não auto
     tab name="COURTHUB⟩STACK" {
         pane split_direction="vertical" {
-            pane size="55%" name="infra" {
+            pane size="55%" name="datastores" {
                 command "zsh"
                 args "-ic" "cd ~/Github/CourtHub; echo '▶  make courthub-service   (Postgres + Redis)'; exec zsh"
             }
             pane split_direction="horizontal" {
-                pane name="bff" {
+                pane name="bff-server" {
                     command "zsh"
                     args "-ic" "cd ~/Github/CourtHub; echo \"▶  ./gradlew :bff:bootRun --args='--spring.profiles.active=local'\"; exec zsh"
                 }
-                pane name="core" {
+                pane name="core-server" {
                     command "zsh"
                     args "-ic" "cd ~/Github/CourtHub; echo \"▶  ./gradlew :core:bootRun --args='--spring.profiles.active=local'\"; exec zsh"
                 }
@@ -112,7 +112,7 @@ layout {
                 command "zsh"
                 args "-ic" "cd ~; nvim ."
             }
-            pane size="35%" name="atalhos" {
+            pane size="35%" name="cheatsheet" {
                 command "zsh"
                 args "-ic" "nvim ~/Github/AntaresOS/library/cheats/nvim-atalhos.md"
             }

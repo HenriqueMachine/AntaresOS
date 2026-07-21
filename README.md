@@ -86,12 +86,17 @@ demand:
 | Command | What it does |
 |---|---|
 | `antares open` (or `dev`) | opens the workspace — three Zellij tabs: **`edit`** (Neovim), **`term`** (two terminals), **`lib`** (the library) |
+| `antares work` (or `work`) | the **work** layout — **Foodbot + CourtHub** side by side (7 tabs: `HOME` dashboard · per-project `AGENTS`/`STACK` · `LAB` · `NVIM`) |
 | `antares flutter` (or `fdev`) | opens the **Flutter** layout (editor + `flutter run` + devices) |
 | `antares proj` (or `proj`) | fuzzy-pick a project under `~/Github` → open/attach its Zellij session (auto Flutter layout) |
+| `antares docker` | [lazydocker](https://github.com/jesseduffield/lazydocker) — TUI for the projects' containers |
+| `antares health` (or `observe`) | live health watch of the CourtHub service (Spring Actuator) |
+| `antares bruno <fb\|ch>` | enter the project's [Bruno](https://www.usebruno.com) API collection, ready for `bru run` |
+| `antares estudos` | open the **Estudos** Codex vault (Obsidian) |
 | `v` / `nvim` | launches the editor (LazyVim) |
 | `lg` | [lazygit](https://github.com/jesseduffield/lazygit) |
 | `z <dir>` | smart directory jump ([zoxide](https://github.com/ajeetdsouza/zoxide)) · `Ctrl-R` history ([atuin](https://github.com/atuinsh/atuin)) |
-| `run <file>` · `scratch <ext>` · `repl-py/clj/kt` | run code / open a scratch buffer / language REPLs |
+| `run <file>` · `scratch <ext>` · `repl-py/clj/kt` | run code / open a scratch buffer / language REPLs (Python · Clojure · Kotlin) |
 | `top` · `sysinfo` | system monitor (btop) · machine info (fastfetch) |
 | `antares update` | update the whole environment (`git pull` + brew + stow + plugins) |
 
@@ -247,13 +252,15 @@ AntaresOS/
 │   ├── 00-homebrew.sh
 │   ├── 10-brew-bundle.sh
 │   ├── 20-stow.sh          # symlinks (backs up conflicts)
-│   └── 30-post.sh          # frameworks, agent, identity
+│   ├── 30-post.sh          # frameworks, agent, identity, bruno CLI
+│   ├── home.sh             # the work HOME dashboard (fastfetch + repos + TODOs)
+│   └── courthub-observe.sh # CourtHub health watch (antares health)
 ├── stow/                   # each folder is one GNU Stow package
 │   ├── zsh/                # .zshrc + .zsh/{exports,aliases,flutter,init,library}.zsh
 │   ├── git/                # .gitconfig (+ delta) + .gitignore_global
 │   ├── starship/           # Matrix prompt
 │   ├── ghostty/            # terminal config + palette
-│   ├── zellij/             # config + layouts (dev, flutter)
+│   ├── zellij/             # config + layouts (dev, flutter, work)
 │   └── nvim/               # LazyVim + base16 Matrix + flutter-tools
 ├── library/                # cheats (navi) · snippets · notes
 └── assets/                 # logo

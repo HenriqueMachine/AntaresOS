@@ -1,4 +1,4 @@
-# AntaresOS · starship.toml — Matrix
+# AntaresOS · starship.toml — Ice Black
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
@@ -23,14 +23,14 @@ $line_break\
 $character"""
 
 add_newline = true
-palette = "antares_matrix"
+palette = "ice_black"
 
 [fill]
 symbol = " "
 
 [os]
 disabled = false
-style = "bg:surface0 fg:green"
+style = "bg:surface0 fg:ice"
 [os.symbols]
 Macos = "󰀵 "
 
@@ -47,11 +47,11 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:surface1 fg:cyan"
+style = "bg:surface1 fg:ice"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:surface1 fg:red"
+style = "bg:surface1 fg:orange"
 format = '[$all_status$ahead_behind ]($style)'
 
 [dart]
@@ -77,12 +77,12 @@ only_with_files = true
 
 [nodejs]
 symbol = ""
-style = "bg:surface2 fg:green"
+style = "bg:surface2 fg:sky"
 format = '[ $symbol ($version) ]($style)'
 
 [python]
 symbol = ""
-style = "bg:surface2 fg:amber"
+style = "bg:surface2 fg:orange"
 format = '[ $symbol ($version) ]($style)'
 
 [cmd_duration]
@@ -91,21 +91,22 @@ style = "fg:dim"
 format = '[  $duration ]($style)'
 
 [character]
-success_symbol = "[❯](bold green)"
+success_symbol = "[❯](bold ice)"
 error_symbol = "[❯](bold red)"
-vimcmd_symbol = "[❮](bold amber)"
+vimcmd_symbol = "[❮](bold orange)"
 
-[palettes.antares_matrix]
-green = "#00ff41"
-text = "#7cffa0"
-bright = "#c8ffd4"
-dim = "#2e6b3e"
-cyan = "#48ffe0"
-sky = "#35c9ff"
-amber = "#f5d76e"
-magenta = "#ff6fd8"
-red = "#ff4d4d"
-surface2 = "#14371f"
-surface1 = "#0f230f"
-surface0 = "#0b140b"
-base = "#000000"
+[palettes.ice_black]
+ice     = "#3dc9e9"
+text    = "#b0c9e8"
+bright  = "#60d8f8"
+dim     = "#3a5070"
+blue    = "#4f9cf9"
+sky     = "#70b4ff"
+orange  = "#ffb454"
+magenta = "#c77dff"
+red     = "#ff4560"
+green   = "#3dd68c"
+surface2 = "#111d2e"
+surface1 = "#0f1a28"
+surface0 = "#0c1520"
+base    = "#080d14"

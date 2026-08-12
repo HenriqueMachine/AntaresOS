@@ -15,12 +15,15 @@ command -v rg  >/dev/null 2>&1 && alias grep='rg'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
+alias e='nvim'
 
 alias lg='lazygit'
 alias gs='git status -sb'
+alias gst='git status'
 alias gl="git log --oneline --graph --decorate --all"
 alias gd='git diff'
 alias gco='git checkout'
+alias gc='git commit'
 alias gcm='git commit -m'
 alias gaa='git add --all'
 alias gp='git push'
@@ -37,7 +40,14 @@ _zj_open() {
 }
 dev()  { _zj_open antares dev; }
 fdev() { _zj_open flutter flutter; }
-work() { _zj_open work work; }
+work() {
+  if ! zellij list-sessions -s 2>/dev/null | grep -qx "work"; then
+    # limpa todo cache de ressurreição da sessão "work" (qualquer UUID)
+    find "${HOME}/Library/Caches/org.Zellij-Contributors.Zellij" \
+      -maxdepth 3 -type d -name "work" 2>/dev/null | xargs rm -rf
+  fi
+  _zj_open work work
+}
 
 alias ..='cd ..'
 alias ...='cd ../..'

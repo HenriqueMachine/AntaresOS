@@ -1,6 +1,6 @@
-// AntaresOS · Zellij — Matrix
+// AntaresOS · Zellij — Ice Black
 
-theme "antares-matrix"
+theme "ice-black"
 default_layout "compact"
 default_shell "zsh"
 
@@ -12,7 +12,6 @@ scroll_buffer_size 100000
 session_serialization true
 serialize_pane_viewport true
 
-// autolock — trava o Zellij quando o nvim/fzf está em foco (teclas passam pro app)
 plugins {
     autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
         is_enabled true
@@ -23,31 +22,64 @@ plugins {
 }
 load_plugins {
     autolock
+    "file:~/.config/zellij/plugins/zellij-attention.wasm" {
+        enabled "true"
+        waiting_icon "⏳"
+        completed_icon "✅"
+    }
 }
 
-// Navegação sem emenda: Ctrl-hjkl move entre painéis (e, via smart-splits no nvim,
-// cruza pro editor). Fica inativo quando travado (autolock em nvim/fzf).
 keybinds {
     shared_except "locked" {
         bind "Ctrl h" { MoveFocusOrTab "Left"; }
         bind "Ctrl l" { MoveFocusOrTab "Right"; }
         bind "Ctrl j" { MoveFocus "Down"; }
         bind "Ctrl k" { MoveFocus "Up"; }
+        bind "Alt 1" { GoToTab 1; }
+        bind "Alt 2" { GoToTab 2; }
+        bind "Alt 3" { GoToTab 3; }
+        bind "Alt 4" { GoToTab 4; }
+        bind "Ctrl y" {
+            LaunchOrFocusPlugin "file:~/zellij-plugins/zellij_forgot.wasm" {
+                floating true
+            }
+        }
     }
 }
 
+// Ice Black — UI components
+// Acento: #3dc9e9 (ice cyan) · blue: #4f9cf9 · orange: #ffb454 · red: #ff4560
 themes {
-    antares-matrix {
-        bg "#14371f"
-        fg "#00ff41"
-        red "#ff4d4d"
-        green "#00ff41"
-        blue "#35c9ff"
-        yellow "#f5d76e"
-        magenta "#ff6fd8"
-        orange "#ff9f45"
-        cyan "#48ffe0"
-        black "#000000"
-        white "#c8ffd4"
+    ice-black {
+        // Palette simples — usada por plugins (zellaude, zellij-attention, etc.)
+        // cyan  = bg das tabs NÃO-selecionadas → ice cyan visível
+        // magenta = bg da tab SELECIONADA → preto (sutil "você está aqui")
+        bg "#080d14"
+        fg "#b0c9e8"
+        black "#0c1520"
+        red "#ff4560"
+        green "#3dd68c"
+        yellow "#ffb454"
+        blue "#4f9cf9"
+        magenta "#080d14"
+        cyan "#3dc9e9"
+        white "#b0c9e8"
+        orange "#ffb454"
+
+        text_unselected      { base "#b0c9e8"; background "#080d14"; emphasis_0 "#ffb454"; emphasis_1 "#3dc9e9"; emphasis_2 "#4f9cf9"; emphasis_3 "#c77dff"; }
+        text_selected        { base "#b0c9e8"; background "#111d2e"; emphasis_0 "#ffb454"; emphasis_1 "#3dc9e9"; emphasis_2 "#4f9cf9"; emphasis_3 "#c77dff"; }
+        ribbon_selected      { base "#3dc9e9"; background "#080d14"; emphasis_0 "#4f9cf9"; emphasis_1 "#3dc9e9"; emphasis_2 "#4f9cf9"; emphasis_3 "#4f9cf9"; }
+        ribbon_unselected    { base "#080d14"; background "#3dc9e9"; emphasis_0 "#080d14"; emphasis_1 "#080d14"; emphasis_2 "#4f9cf9"; emphasis_3 "#080d14"; }
+        table_title          { base "#3dc9e9"; background 0; emphasis_0 "#ffb454"; emphasis_1 "#3dc9e9"; emphasis_2 "#4f9cf9"; emphasis_3 "#c77dff"; }
+        table_cell_selected  { base "#b0c9e8"; background "#111d2e"; emphasis_0 "#ffb454"; emphasis_1 "#3dc9e9"; emphasis_2 "#4f9cf9"; emphasis_3 "#c77dff"; }
+        table_cell_unselected{ base "#b0c9e8"; background "#080d14"; emphasis_0 "#ffb454"; emphasis_1 "#3dc9e9"; emphasis_2 "#4f9cf9"; emphasis_3 "#c77dff"; }
+        list_selected        { base "#b0c9e8"; background "#111d2e"; emphasis_0 "#ffb454"; emphasis_1 "#3dc9e9"; emphasis_2 "#4f9cf9"; emphasis_3 "#c77dff"; }
+        list_unselected      { base "#b0c9e8"; background "#080d14"; emphasis_0 "#ffb454"; emphasis_1 "#3dc9e9"; emphasis_2 "#4f9cf9"; emphasis_3 "#c77dff"; }
+        frame_unselected     { base "#1a2d42"; background 0; emphasis_0 "#1a2d42"; emphasis_1 "#1a2d42"; emphasis_2 "#1a2d42"; emphasis_3 "#1a2d42"; }
+        frame_selected       { base "#3dc9e9"; background 0; emphasis_0 "#4f9cf9"; emphasis_1 "#3dc9e9"; emphasis_2 "#ffb454"; emphasis_3 "#3dd68c"; }
+        frame_highlight      { base "#4f9cf9"; background 0; emphasis_0 "#4f9cf9"; emphasis_1 "#4f9cf9"; emphasis_2 "#4f9cf9"; emphasis_3 "#4f9cf9"; }
+        exit_code_success    { base "#3dd68c"; background 0; emphasis_0 "#3dc9e9"; emphasis_1 "#3dd68c"; emphasis_2 "#4f9cf9"; emphasis_3 "#b0c9e8"; }
+        exit_code_error      { base "#ff4560"; background 0; emphasis_0 "#ff4560"; emphasis_1 "#ff4560"; emphasis_2 "#ff4560"; emphasis_3 "#ff4560"; }
+        multiplayer_user_colors { base "#3dc9e9"; background 0; emphasis_0 "#ffb454"; emphasis_1 "#3dd68c"; emphasis_2 "#4f9cf9"; emphasis_3 "#ff4560"; }
     }
 }

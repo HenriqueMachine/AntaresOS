@@ -1,44 +1,47 @@
-# AntaresOS · Ghostty — Matrix
+# AntaresOS · Ghostty — Solar Black
+# Desktop 1 = terminal  |  Desktop 2 = browser  |  Desktop 3 = comunicação
 
-# Option DIREITO = Alt (atalhos do Zellij); Option ESQUERDO segue p/ acentos (é, ã, ç…).
 macos-option-as-alt = right
 
+font-family = "ZedMono Nerd Font"
 font-family = "FiraCode Nerd Font"
-font-size = 18
+font-size = 19
 font-thicken = true
 
-background = 000000
-foreground = 00ff41
-cursor-color = 00ff41
-cursor-text = 000000
-selection-background = 14371f
-selection-foreground = 7cffa0
+# Solar Black — ouro quente em grafite profundo
+background = 1a1a1a
+foreground = e8e8d0
+cursor-color = 7aa89f
+cursor-text = 1a1a1a
+selection-background = 2d2d2d
+selection-foreground = e8e8d0
 
-# Matrix palette (green base + accents)
-palette = 0=#0b140b
-palette = 1=#ff4d4d
-palette = 2=#00ff41
-palette = 3=#f5d76e
-palette = 4=#35c9ff
-palette = 5=#ff6fd8
-palette = 6=#48ffe0
-palette = 7=#7cffa0
-palette = 8=#2e6b3e
-palette = 9=#ff6b6b
-palette = 10=#5cff77
-palette = 11=#ffe58a
-palette = 12=#7fdcff
-palette = 13=#ff9be6
-palette = 14=#8affea
-palette = 15=#c8ffd4
+# ANSI palette — Solar Black
+# 0=black 1=red 2=green 3=yellow(gold) 4=blue 5=magenta 6=cyan 7=white
+palette = 0=#2d2d2d
+palette = 1=#c4746e
+palette = 2=#87a987
+palette = 3=#e8c96a
+palette = 4=#7fb4ca
+palette = 5=#a48ca1
+palette = 6=#7aa89f
+palette = 7=#c5c9c5
+palette = 8=#545450
+palette = 9=#e46876
+palette = 10=#8ca98c
+palette = 11=#f0d080
+palette = 12=#9fb5c9
+palette = 13=#b35b79
+palette = 14=#8ab8b5
+palette = 15=#e8e8d0
 
 background-opacity = 0.60
-background-blur-radius = 30
+background-blur-radius = 25
 minimum-contrast = 1.1
 bold-is-bright = true
 
-window-padding-x = 14
-window-padding-y = 14
+window-padding-x = 16
+window-padding-y = 16
 window-decoration = true
 macos-titlebar-style = tabs
 window-save-state = always

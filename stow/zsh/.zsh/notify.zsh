@@ -1,6 +1,5 @@
 # AntaresOS · notify.zsh — avisa no desktop quando um comando longo termina
 # Requer: terminal-notifier. Só notifica se o comando demorou >= NOTIFY_MIN segundos
-# E se o terminal (Ghostty) não estiver em foco no momento do término.
 
 : ${NOTIFY_MIN:=30}   # segundos mínimos p/ notificar
 
@@ -29,11 +28,6 @@ _notify_precmd() {
   # primeiro token do comando
   local name="${cmd%% *}"; name="${name:t}"
   [[ " ${_notify_ignore[*]} " == *" $name "* ]] && return
-
-  # não notifica se o Ghostty já está em foco (você está olhando)
-  local front
-  front=$(osascript -e 'tell application "System Events" to name of first application process whose frontmost is true' 2>/dev/null)
-  [[ "$front" == "Ghostty" ]] && return
 
   local mmss=$(printf '%dm%02ds' $(( dur / 60 )) $(( dur % 60 )))
   if (( exit == 0 )); then

@@ -19,12 +19,12 @@
 	navigate = true
 	line-numbers = true
 	side-by-side = false
-	syntax-theme = base16
+	syntax-theme = Dracula
 	plus-style = "syntax #052e10"
 	minus-style = "syntax #2e0808"
 
 [merge]
-	conflictstyle = zdiff3
+	conflictstyle = diff3
 
 [diff]
 	colorMoved = default

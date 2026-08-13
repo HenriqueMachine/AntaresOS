@@ -24,10 +24,10 @@ with open(plist, "rb") as f:
 profile = p["New Bookmarks"][0]
 
 # ── Fontes ────────────────────────────────────────────────────────────────
-profile["Normal Font"]          = "ZedMonoNFM 18"
+profile["Normal Font"]          = "FiraCodeNFM-Reg 18"
 profile["Non Ascii Font"]       = "FiraCodeNFM-Reg"
 profile["Non Ascii Font Size"]  = 18
-profile["Use Non-ASCII Font"]   = True
+profile["Use Non-ASCII Font"]   = False
 profile["ASCII Ligatures"]      = False
 
 # ── Cursor Guide: ice cyan #3dc9e9 @ 12% ─────────────────────────────────

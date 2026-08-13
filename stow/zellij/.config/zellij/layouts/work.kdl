@@ -22,8 +22,8 @@ layout {
                 mode_search  "#[bg=#c77dff,fg=#080d14,bold] SEARCH "
                 mode_session "#[bg=#3dc9e9,fg=#080d14,bold] SESSION "
 
-                tab_active   "#[fg=#3dc9e9,bg=#080d14,bold] ▶ {name} "
-                tab_normal   "#[fg=#080d14,bg=#3dc9e9] {name} "
+                tab_active   "#[fg=#080d14,bg=#3dc9e9,bold] ▶ {name} "
+                tab_normal   "#[fg=#3dc9e9,bg=#080d14] {name} "
                 tab_separator "#[fg=#3dc9e9,bg=#080d14]"
 
                 datetime          " {format} "

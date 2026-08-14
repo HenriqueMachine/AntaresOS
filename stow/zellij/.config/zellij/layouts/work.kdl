@@ -5,29 +5,7 @@
 layout {
     default_tab_template {
         pane size=1 borderless=true {
-            plugin location="file:/Users/henriquepaixao/.config/zellij/plugins/zjstatus.wasm" {
-                format_left  "{mode}#[bg=#2e2820]{tabs}"
-                format_right "#[fg=#a48ca1,bg=#2e2820] {focused_pane_title} #[fg=#7a6840,bg=#2e2820] {datetime}"
-                format_space "#[bg=#2e2820]"
-                border_enabled "false"
-
-                mode_normal  "#[bg=#87a987,fg=#1a1612,bold] NORMAL "
-                mode_locked  "#[bg=#e8a020,fg=#1a1612,bold] LOCKED "
-                mode_pane    "#[bg=#a48ca1,fg=#1a1612,bold] PANE "
-                mode_tab     "#[bg=#f0c060,fg=#1a1612,bold] TAB "
-                mode_resize  "#[bg=#d4820a,fg=#1a1612,bold] RESIZE "
-                mode_scroll  "#[bg=#a48ca1,fg=#1a1612,bold] SCROLL "
-                mode_search  "#[bg=#a48ca1,fg=#1a1612,bold] SEARCH "
-                mode_session "#[bg=#e8a020,fg=#1a1612,bold] SESSION "
-
-                tab_active    "#[fg=#1a1612,bg=#e8a020,bold] ▶ {name} "
-                tab_normal    "#[fg=#e8a020,bg=#1a1612] {name} "
-                tab_separator "#[fg=#e8a020,bg=#1a1612]"
-
-                datetime          " {format} "
-                datetime_format   "%d/%m  %H:%M"
-                datetime_timezone "America/Sao_Paulo"
-            }
+            plugin location="zellij:tab-bar"
         }
         children
         pane size=2 borderless=true {

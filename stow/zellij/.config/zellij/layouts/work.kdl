@@ -1,6 +1,6 @@
 // AntaresOS · layout "work" — Ember Dark
 // 4 tabs: 3 workspaces agnósticos de projeto + 1 nvim cheatsheet
-// Tab bar: zjstatus (mode + tabs + git branch + hora)
+// Tab bar: zjstatus (mode + tabs + hora)
 // Abrir com: zellij -l work
 
 layout {
@@ -36,26 +36,12 @@ layout {
         }
     }
 
-    new_tab_template {
-        pane split_direction="vertical" {
-            pane size="40%" name="claude" {
-                command "zsh"
-                args "-ic" "source $HOME/Github/AntaresOS/scripts/workspace-init.sh; exec zsh -i"
-            }
-            pane split_direction="horizontal" {
-                pane size="55%" name="nvim"
-                pane size="25%" name="logs"
-                pane name="shell"
-            }
-        }
-    }
-
     // 0 · ENV-1
     tab name=" ENV-1" focus=true {
         pane split_direction="vertical" {
             pane size="40%" name="claude" {
                 command "zsh"
-                args "-ic" "source $HOME/Github/AntaresOS/scripts/workspace-init.sh; exec zsh -i"
+                args "-ic" "$HOME/Github/AntaresOS/scripts/workspace-init.sh; exec zsh -i"
             }
             pane split_direction="horizontal" {
                 pane size="55%" name="nvim"
@@ -70,7 +56,7 @@ layout {
         pane split_direction="vertical" {
             pane size="40%" name="claude" {
                 command "zsh"
-                args "-ic" "source $HOME/Github/AntaresOS/scripts/workspace-init.sh; exec zsh -i"
+                args "-ic" "$HOME/Github/AntaresOS/scripts/workspace-init.sh; exec zsh -i"
             }
             pane split_direction="horizontal" {
                 pane size="55%" name="nvim"
@@ -85,7 +71,7 @@ layout {
         pane split_direction="vertical" {
             pane size="40%" name="claude" {
                 command "zsh"
-                args "-ic" "source $HOME/Github/AntaresOS/scripts/workspace-init.sh; exec zsh -i"
+                args "-ic" "$HOME/Github/AntaresOS/scripts/workspace-init.sh; exec zsh -i"
             }
             pane split_direction="horizontal" {
                 pane size="55%" name="nvim"

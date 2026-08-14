@@ -14,7 +14,7 @@ layout {
     }
 
     // 0 · ENV-1
-    tab name=" ENV-1" focus=true {
+    tab name="  ENV-1" focus=true {
         pane split_direction="vertical" {
             pane size="40%" name="claude" {
                 command "zsh"
@@ -38,7 +38,7 @@ layout {
     }
 
     // 1 · ENV-2
-    tab name=" ENV-2" {
+    tab name="  ENV-2" {
         pane split_direction="vertical" {
             pane size="40%" name="claude" {
                 command "zsh"
@@ -62,7 +62,7 @@ layout {
     }
 
     // 2 · ENV-3
-    tab name=" ENV-3" {
+    tab name="  ENV-3" {
         pane split_direction="vertical" {
             pane size="40%" name="claude" {
                 command "zsh"

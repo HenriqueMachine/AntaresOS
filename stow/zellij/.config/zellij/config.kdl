@@ -1,6 +1,6 @@
-// AntaresOS · Zellij — Ice Black
+// AntaresOS · Zellij — Ember Dark
 
-theme "ice-black"
+theme "ember-dark"
 default_layout "compact"
 default_shell "zsh"
 
@@ -48,39 +48,36 @@ keybinds {
     }
 }
 
-// Ice Black — UI components
-// Acento: #3dc9e9 (ice cyan) · blue: #4f9cf9 · orange: #ffb454 · red: #ff4560
+// Ember Dark — carvão quente + âmbar dourado + lavanda
+// Acento: #e8a020 (âmbar) · secundária: #a48ca1 (lavanda) · green: #87a987
 themes {
-    ice-black {
-        // Palette simples — usada por plugins (zellaude, zellij-attention, etc.)
-        // cyan  = bg das tabs NÃO-selecionadas → ice cyan visível
-        // magenta = bg da tab SELECIONADA → preto (sutil "você está aqui")
-        bg "#080d14"
-        fg "#b0c9e8"
-        black "#0c1520"
-        red "#ff4560"
-        green "#3dd68c"
-        yellow "#ffb454"
-        blue "#4f9cf9"
-        magenta "#080d14"
-        cyan "#3dc9e9"
-        white "#b0c9e8"
-        orange "#ffb454"
+    ember-dark {
+        bg "#1a1612"
+        fg "#e8d5a3"
+        black "#1e1a14"
+        red "#c4746e"
+        green "#87a987"
+        yellow "#e8c96a"
+        blue "#7aa8c4"
+        magenta "#a48ca1"
+        cyan "#7aa89f"
+        white "#e8d5a3"
+        orange "#e8a020"
 
-        text_unselected      { base "#b0c9e8"; background "#080d14"; emphasis_0 "#ffb454"; emphasis_1 "#3dc9e9"; emphasis_2 "#4f9cf9"; emphasis_3 "#c77dff"; }
-        text_selected        { base "#080d14"; background "#4f9cf9"; emphasis_0 "#ffb454"; emphasis_1 "#3dc9e9"; emphasis_2 "#4f9cf9"; emphasis_3 "#c77dff"; }
-        ribbon_selected      { base "#3dc9e9"; background "#080d14"; emphasis_0 "#4f9cf9"; emphasis_1 "#3dc9e9"; emphasis_2 "#4f9cf9"; emphasis_3 "#4f9cf9"; }
-        ribbon_unselected    { base "#080d14"; background "#3dc9e9"; emphasis_0 "#080d14"; emphasis_1 "#080d14"; emphasis_2 "#4f9cf9"; emphasis_3 "#080d14"; }
-        table_title          { base "#3dc9e9"; background 0; emphasis_0 "#ffb454"; emphasis_1 "#3dc9e9"; emphasis_2 "#4f9cf9"; emphasis_3 "#c77dff"; }
-        table_cell_selected  { base "#b0c9e8"; background "#111d2e"; emphasis_0 "#ffb454"; emphasis_1 "#3dc9e9"; emphasis_2 "#4f9cf9"; emphasis_3 "#c77dff"; }
-        table_cell_unselected{ base "#b0c9e8"; background "#080d14"; emphasis_0 "#ffb454"; emphasis_1 "#3dc9e9"; emphasis_2 "#4f9cf9"; emphasis_3 "#c77dff"; }
-        list_selected        { base "#b0c9e8"; background "#111d2e"; emphasis_0 "#ffb454"; emphasis_1 "#3dc9e9"; emphasis_2 "#4f9cf9"; emphasis_3 "#c77dff"; }
-        list_unselected      { base "#b0c9e8"; background "#080d14"; emphasis_0 "#ffb454"; emphasis_1 "#3dc9e9"; emphasis_2 "#4f9cf9"; emphasis_3 "#c77dff"; }
-        frame_unselected     { base "#1a2d42"; background 0; emphasis_0 "#1a2d42"; emphasis_1 "#1a2d42"; emphasis_2 "#1a2d42"; emphasis_3 "#1a2d42"; }
-        frame_selected       { base "#3dc9e9"; background 0; emphasis_0 "#4f9cf9"; emphasis_1 "#3dc9e9"; emphasis_2 "#ffb454"; emphasis_3 "#3dd68c"; }
-        frame_highlight      { base "#4f9cf9"; background 0; emphasis_0 "#4f9cf9"; emphasis_1 "#4f9cf9"; emphasis_2 "#4f9cf9"; emphasis_3 "#4f9cf9"; }
-        exit_code_success    { base "#3dd68c"; background 0; emphasis_0 "#3dc9e9"; emphasis_1 "#3dd68c"; emphasis_2 "#4f9cf9"; emphasis_3 "#b0c9e8"; }
-        exit_code_error      { base "#ff4560"; background 0; emphasis_0 "#ff4560"; emphasis_1 "#ff4560"; emphasis_2 "#ff4560"; emphasis_3 "#ff4560"; }
-        multiplayer_user_colors { base "#3dc9e9"; background 0; emphasis_0 "#ffb454"; emphasis_1 "#3dd68c"; emphasis_2 "#4f9cf9"; emphasis_3 "#ff4560"; }
+        text_unselected      { base "#e8d5a3"; background "#1a1612"; emphasis_0 "#e8a020"; emphasis_1 "#a48ca1"; emphasis_2 "#7aa8c4"; emphasis_3 "#87a987"; }
+        text_selected        { base "#1a1612"; background "#e8a020"; emphasis_0 "#f0c060"; emphasis_1 "#a48ca1"; emphasis_2 "#7aa8c4"; emphasis_3 "#87a987"; }
+        ribbon_selected      { base "#e8a020"; background "#1a1612"; emphasis_0 "#f0c060"; emphasis_1 "#e8a020"; emphasis_2 "#a48ca1"; emphasis_3 "#e8a020"; }
+        ribbon_unselected    { base "#1a1612"; background "#e8a020"; emphasis_0 "#1a1612"; emphasis_1 "#1a1612"; emphasis_2 "#7aa8c4"; emphasis_3 "#1a1612"; }
+        table_title          { base "#e8a020"; background 0; emphasis_0 "#f0c060"; emphasis_1 "#e8a020"; emphasis_2 "#a48ca1"; emphasis_3 "#87a987"; }
+        table_cell_selected  { base "#e8d5a3"; background "#252018"; emphasis_0 "#e8a020"; emphasis_1 "#a48ca1"; emphasis_2 "#7aa8c4"; emphasis_3 "#87a987"; }
+        table_cell_unselected{ base "#e8d5a3"; background "#1a1612"; emphasis_0 "#e8a020"; emphasis_1 "#a48ca1"; emphasis_2 "#7aa8c4"; emphasis_3 "#87a987"; }
+        list_selected        { base "#e8d5a3"; background "#252018"; emphasis_0 "#e8a020"; emphasis_1 "#a48ca1"; emphasis_2 "#7aa8c4"; emphasis_3 "#87a987"; }
+        list_unselected      { base "#e8d5a3"; background "#1a1612"; emphasis_0 "#e8a020"; emphasis_1 "#a48ca1"; emphasis_2 "#7aa8c4"; emphasis_3 "#87a987"; }
+        frame_unselected     { base "#2e2820"; background 0; emphasis_0 "#2e2820"; emphasis_1 "#2e2820"; emphasis_2 "#2e2820"; emphasis_3 "#2e2820"; }
+        frame_selected       { base "#e8a020"; background 0; emphasis_0 "#f0c060"; emphasis_1 "#e8a020"; emphasis_2 "#a48ca1"; emphasis_3 "#87a987"; }
+        frame_highlight      { base "#f0c060"; background 0; emphasis_0 "#f0c060"; emphasis_1 "#f0c060"; emphasis_2 "#f0c060"; emphasis_3 "#f0c060"; }
+        exit_code_success    { base "#87a987"; background 0; emphasis_0 "#e8a020"; emphasis_1 "#87a987"; emphasis_2 "#7aa8c4"; emphasis_3 "#e8d5a3"; }
+        exit_code_error      { base "#c4746e"; background 0; emphasis_0 "#c4746e"; emphasis_1 "#c4746e"; emphasis_2 "#c4746e"; emphasis_3 "#c4746e"; }
+        multiplayer_user_colors { base "#e8a020"; background 0; emphasis_0 "#f0c060"; emphasis_1 "#87a987"; emphasis_2 "#a48ca1"; emphasis_3 "#c4746e"; }
     }
 }

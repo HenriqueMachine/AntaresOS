@@ -23,14 +23,14 @@ $line_break\
 $character"""
 
 add_newline = true
-palette = "ice_black"
+palette = "ember_dark"
 
 [fill]
 symbol = " "
 
 [os]
 disabled = false
-style = "bg:surface0 fg:ice"
+style = "bg:surface0 fg:amber"
 [os.symbols]
 Macos = "󰀵 "
 
@@ -47,21 +47,21 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:surface1 fg:ice"
+style = "bg:surface1 fg:amber"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:surface1 fg:orange"
+style = "bg:surface1 fg:red"
 format = '[$all_status$ahead_behind ]($style)'
 
 [dart]
 symbol = ""
-style = "bg:surface2 fg:sky"
+style = "bg:surface2 fg:lavender"
 format = '[ $symbol ($version) ]($style)'
 
 [kotlin]
 symbol = ""
-style = "bg:surface2 fg:magenta"
+style = "bg:surface2 fg:lavender"
 format = '[ $symbol ($version) ]($style)'
 
 [java]
@@ -71,18 +71,18 @@ format = '[ $symbol ($version) ]($style)'
 
 [docker_context]
 symbol = " "
-style = "bg:surface2 fg:sky"
+style = "bg:surface2 fg:cyan"
 format = '[ $symbol$context ]($style)'
 only_with_files = true
 
 [nodejs]
 symbol = ""
-style = "bg:surface2 fg:sky"
+style = "bg:surface2 fg:green"
 format = '[ $symbol ($version) ]($style)'
 
 [python]
 symbol = ""
-style = "bg:surface2 fg:orange"
+style = "bg:surface2 fg:amber"
 format = '[ $symbol ($version) ]($style)'
 
 [cmd_duration]
@@ -91,22 +91,22 @@ style = "fg:dim"
 format = '[  $duration ]($style)'
 
 [character]
-success_symbol = "[❯](bold ice)"
+success_symbol = "[❯](bold amber)"
 error_symbol = "[❯](bold red)"
-vimcmd_symbol = "[❮](bold orange)"
+vimcmd_symbol = "[❮](bold green)"
 
-[palettes.ice_black]
-ice     = "#3dc9e9"
-text    = "#b0c9e8"
-bright  = "#60d8f8"
-dim     = "#3a5070"
-blue    = "#4f9cf9"
-sky     = "#70b4ff"
-orange  = "#ffb454"
-magenta = "#c77dff"
-red     = "#ff4560"
-green   = "#3dd68c"
-surface2 = "#111d2e"
-surface1 = "#0f1a28"
-surface0 = "#0c1520"
-base    = "#080d14"
+[palettes.ember_dark]
+amber   = "#e8a020"
+bright  = "#f0c060"
+dim     = "#7a6840"
+text    = "#e8d5a3"
+lavender= "#a48ca1"
+red     = "#c4746e"
+green   = "#87a987"
+cyan    = "#7aa89f"
+blue    = "#7aa8c4"
+orange  = "#d4820a"
+surface2 = "#2e2820"
+surface1 = "#252018"
+surface0 = "#1e1a14"
+base    = "#1a1612"

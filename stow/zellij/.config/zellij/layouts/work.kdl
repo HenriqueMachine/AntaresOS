@@ -1,11 +1,33 @@
 // AntaresOS · layout "work" — Ember Dark
 // 4 tabs: 3 workspaces + 1 nvim cheatsheet
-// Tab bar: zjstatus v0.24.0
+// Tab bar: zjstatus v0.21.1
 
 layout {
     default_tab_template {
         pane size=1 borderless=true {
-            plugin location="zellij:tab-bar"
+            plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+                format_left  "{mode}#[bg=#2e2820]{tabs}"
+                format_right "#[fg=#7a6840,bg=#2e2820] {datetime}"
+                format_space "#[bg=#2e2820]"
+                border_enabled "false"
+
+                mode_normal  "#[bg=#87a987,fg=#1a1612,bold] NORMAL "
+                mode_locked  "#[bg=#e8a020,fg=#1a1612,bold] LOCKED "
+                mode_pane    "#[bg=#a48ca1,fg=#1a1612,bold] PANE "
+                mode_tab     "#[bg=#f0c060,fg=#1a1612,bold] TAB "
+                mode_resize  "#[bg=#d4820a,fg=#1a1612,bold] RESIZE "
+                mode_scroll  "#[bg=#a48ca1,fg=#1a1612,bold] SCROLL "
+                mode_search  "#[bg=#a48ca1,fg=#1a1612,bold] SEARCH "
+                mode_session "#[bg=#e8a020,fg=#1a1612,bold] SESSION "
+
+                tab_active    "#[fg=#1a1612,bg=#e8a020,bold] ▶ {name} "
+                tab_normal    "#[fg=#e8a020,bg=#1a1612] {name} "
+                tab_separator "#[fg=#e8a020,bg=#1a1612]"
+
+                datetime          " {format} "
+                datetime_format   " %d/%m  %H:%M"
+                datetime_timezone "America/Sao_Paulo"
+            }
         }
         children
         pane size=2 borderless=true {
@@ -18,12 +40,21 @@ layout {
         pane split_direction="vertical" {
             pane size="40%" name="claude" {
                 command "zsh"
-                args "-ic" "$HOME/Github/AntaresOS/scripts/workspace-init.sh; exec zsh -i"
+                args "-ic" "$HOME/Github/AntaresOS/scripts/workspace-init.sh; exec zsh"
             }
             pane split_direction="horizontal" {
-                pane size="55%" name="nvim"
-                pane size="25%" name="logs"
-                pane name="shell"
+                pane size="55%" name="nvim" {
+                    command "zsh"
+                    args "-ic" "exec zsh"
+                }
+                pane size="25%" name="logs" {
+                    command "zsh"
+                    args "-ic" "exec zsh"
+                }
+                pane name="shell" {
+                    command "zsh"
+                    args "-ic" "exec zsh"
+                }
             }
         }
     }
@@ -33,12 +64,21 @@ layout {
         pane split_direction="vertical" {
             pane size="40%" name="claude" {
                 command "zsh"
-                args "-ic" "$HOME/Github/AntaresOS/scripts/workspace-init.sh; exec zsh -i"
+                args "-ic" "$HOME/Github/AntaresOS/scripts/workspace-init.sh; exec zsh"
             }
             pane split_direction="horizontal" {
-                pane size="55%" name="nvim"
-                pane size="25%" name="logs"
-                pane name="shell"
+                pane size="55%" name="nvim" {
+                    command "zsh"
+                    args "-ic" "exec zsh"
+                }
+                pane size="25%" name="logs" {
+                    command "zsh"
+                    args "-ic" "exec zsh"
+                }
+                pane name="shell" {
+                    command "zsh"
+                    args "-ic" "exec zsh"
+                }
             }
         }
     }
@@ -48,12 +88,21 @@ layout {
         pane split_direction="vertical" {
             pane size="40%" name="claude" {
                 command "zsh"
-                args "-ic" "$HOME/Github/AntaresOS/scripts/workspace-init.sh; exec zsh -i"
+                args "-ic" "$HOME/Github/AntaresOS/scripts/workspace-init.sh; exec zsh"
             }
             pane split_direction="horizontal" {
-                pane size="55%" name="nvim"
-                pane size="25%" name="logs"
-                pane name="shell"
+                pane size="55%" name="nvim" {
+                    command "zsh"
+                    args "-ic" "exec zsh"
+                }
+                pane size="25%" name="logs" {
+                    command "zsh"
+                    args "-ic" "exec zsh"
+                }
+                pane name="shell" {
+                    command "zsh"
+                    args "-ic" "exec zsh"
+                }
             }
         }
     }
@@ -63,9 +112,12 @@ layout {
         pane split_direction="vertical" {
             pane size="65%" name="cheatsheet" {
                 command "zsh"
-                args "-ic" "nvim ~/Github/AntaresOS/library/cheats/nvim-atalhos.md; exec zsh -i"
+                args "-ic" "nvim ~/Github/AntaresOS/library/cheats/nvim-atalhos.md; exec zsh"
             }
-            pane size="35%" name="prática"
+            pane size="35%" name="prática" {
+                command "zsh"
+                args "-ic" "exec zsh"
+            }
         }
     }
 }

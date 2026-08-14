@@ -42,11 +42,16 @@ dev()  { _zj_open antares dev; }
 fdev() { _zj_open flutter flutter; }
 work() {
   if ! zellij list-sessions -s 2>/dev/null | grep -qx "work"; then
-    # limpa todo cache de ressurreição da sessão "work" (qualquer UUID)
     find "${HOME}/Library/Caches/org.Zellij-Contributors.Zellij" \
       -maxdepth 3 -type d -name "work" 2>/dev/null | xargs rm -rf
   fi
   _zj_open work work
+}
+
+# Cria sessão work2 com layout novo sem matar a sessão work existente
+work-new() {
+  local name="work-$(date +%H%M)"
+  zellij --layout work --session "$name"
 }
 
 alias ..='cd ..'

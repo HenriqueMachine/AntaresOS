@@ -74,7 +74,7 @@ themes {
         list_selected        { base "#e8d5a3"; background "#252018"; emphasis_0 "#e8a020"; emphasis_1 "#a48ca1"; emphasis_2 "#7aa8c4"; emphasis_3 "#87a987"; }
         list_unselected      { base "#e8d5a3"; background "#1a1612"; emphasis_0 "#e8a020"; emphasis_1 "#a48ca1"; emphasis_2 "#7aa8c4"; emphasis_3 "#87a987"; }
         frame_unselected     { base "#2e2820"; background 0; emphasis_0 "#2e2820"; emphasis_1 "#2e2820"; emphasis_2 "#2e2820"; emphasis_3 "#2e2820"; }
-        frame_selected       { base "#e8a020"; background 0; emphasis_0 "#f0c060"; emphasis_1 "#e8a020"; emphasis_2 "#a48ca1"; emphasis_3 "#87a987"; }
+        frame_selected       { base "#f0c060"; background 0; emphasis_0 "#f0c060"; emphasis_1 "#e8a020"; emphasis_2 "#a48ca1"; emphasis_3 "#87a987"; }
         frame_highlight      { base "#f0c060"; background 0; emphasis_0 "#f0c060"; emphasis_1 "#f0c060"; emphasis_2 "#f0c060"; emphasis_3 "#f0c060"; }
         exit_code_success    { base "#87a987"; background 0; emphasis_0 "#e8a020"; emphasis_1 "#87a987"; emphasis_2 "#7aa8c4"; emphasis_3 "#e8d5a3"; }
         exit_code_error      { base "#c4746e"; background 0; emphasis_0 "#c4746e"; emphasis_1 "#c4746e"; emphasis_2 "#c4746e"; emphasis_3 "#c4746e"; }

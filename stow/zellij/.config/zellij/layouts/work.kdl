@@ -8,7 +8,7 @@ layout {
         pane size=1 borderless=true {
             plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
                 format_left  "{mode}#[bg=#2e2820]{tabs}"
-                format_right "#[fg=#a48ca1,bg=#2e2820]  {git_branch}#[fg=#7a6840,bg=#2e2820]  {datetime}"
+                format_right "#[fg=#7a6840,bg=#2e2820]  {datetime}"
                 format_space "#[bg=#2e2820]"
                 border_enabled "false"
 
@@ -24,10 +24,6 @@ layout {
                 tab_active    "#[fg=#1a1612,bg=#e8a020,bold] ▶ {name} "
                 tab_normal    "#[fg=#e8a020,bg=#1a1612] {name} "
                 tab_separator "#[fg=#e8a020,bg=#1a1612]"
-
-                git_branch_format " {name} "
-                git_branch_color  "#[fg=#a48ca1,bg=#2e2820]"
-                git_branch_default " - "
 
                 datetime          " {format} "
                 datetime_format   " %d/%m  %H:%M"

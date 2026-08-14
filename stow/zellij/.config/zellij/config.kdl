@@ -66,8 +66,8 @@ themes {
 
         text_unselected      { base "#e8d5a3"; background "#1a1612"; emphasis_0 "#e8a020"; emphasis_1 "#a48ca1"; emphasis_2 "#7aa8c4"; emphasis_3 "#87a987"; }
         text_selected        { base "#1a1612"; background "#e8a020"; emphasis_0 "#f0c060"; emphasis_1 "#a48ca1"; emphasis_2 "#7aa8c4"; emphasis_3 "#87a987"; }
-        ribbon_selected      { base "#e8a020"; background "#1a1612"; emphasis_0 "#f0c060"; emphasis_1 "#e8a020"; emphasis_2 "#a48ca1"; emphasis_3 "#e8a020"; }
-        ribbon_unselected    { base "#1a1612"; background "#e8a020"; emphasis_0 "#1a1612"; emphasis_1 "#1a1612"; emphasis_2 "#7aa8c4"; emphasis_3 "#1a1612"; }
+        ribbon_selected      { base "#1a1612"; background "#e8a020"; emphasis_0 "#1a1612"; emphasis_1 "#1a1612"; emphasis_2 "#1a1612"; emphasis_3 "#1a1612"; }
+        ribbon_unselected    { base "#7a6840"; background "#1a1612"; emphasis_0 "#7a6840"; emphasis_1 "#7a6840"; emphasis_2 "#7a6840"; emphasis_3 "#7a6840"; }
         table_title          { base "#e8a020"; background 0; emphasis_0 "#f0c060"; emphasis_1 "#e8a020"; emphasis_2 "#a48ca1"; emphasis_3 "#87a987"; }
         table_cell_selected  { base "#e8d5a3"; background "#252018"; emphasis_0 "#e8a020"; emphasis_1 "#a48ca1"; emphasis_2 "#7aa8c4"; emphasis_3 "#87a987"; }
         table_cell_unselected{ base "#e8d5a3"; background "#1a1612"; emphasis_0 "#e8a020"; emphasis_1 "#a48ca1"; emphasis_2 "#7aa8c4"; emphasis_3 "#87a987"; }

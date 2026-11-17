@@ -1,6 +1,6 @@
-// AntaresOS · Zellij — Ember Dark
+// Deepdeck · Zellij — cyberpunk, high contrast (ember-dark kept below as a fallback)
 
-theme "ember-dark"
+theme "deepdeck"
 default_layout "compact"
 default_shell "zsh"
 
@@ -40,6 +40,9 @@ keybinds {
         bind "Alt 2" { GoToTab 2; }
         bind "Alt 3" { GoToTab 3; }
         bind "Alt 4" { GoToTab 4; }
+        bind "Alt 5" { GoToTab 5; }
+        bind "Alt 6" { GoToTab 6; }
+        bind "Alt 7" { GoToTab 7; }
         bind "Ctrl y" {
             LaunchOrFocusPlugin "file:~/zellij-plugins/zellij_forgot.wasm" {
                 floating true
@@ -51,6 +54,35 @@ keybinds {
 // Ember Dark — carvão quente + âmbar dourado + lavanda
 // Acento: #e8a020 (âmbar) · secundária: #a48ca1 (lavanda) · green: #87a987
 themes {
+    deepdeck {
+        bg "#000000"
+        fg "#f5f5f5"
+        black "#000000"
+        red "#ff2a6d"
+        green "#00ff9f"
+        yellow "#f9f002"
+        blue "#3d7bff"
+        magenta "#ff2a6d"
+        cyan "#05d9e8"
+        white "#f5f5f5"
+        orange "#f9f002"
+
+        text_unselected       { base "#f5f5f5"; background "#000000"; emphasis_0 "#ff2a6d"; emphasis_1 "#05d9e8"; emphasis_2 "#f9f002"; emphasis_3 "#00ff9f"; }
+        text_selected         { base "#000000"; background "#ff2a6d"; emphasis_0 "#f9f002"; emphasis_1 "#05d9e8"; emphasis_2 "#f5f5f5"; emphasis_3 "#00ff9f"; }
+        ribbon_selected       { base "#000000"; background "#ff2a6d"; emphasis_0 "#000000"; emphasis_1 "#000000"; emphasis_2 "#000000"; emphasis_3 "#000000"; }
+        ribbon_unselected     { base "#5c5c70"; background "#000000"; emphasis_0 "#5c5c70"; emphasis_1 "#5c5c70"; emphasis_2 "#5c5c70"; emphasis_3 "#5c5c70"; }
+        table_title           { base "#ff2a6d"; background 0; emphasis_0 "#05d9e8"; emphasis_1 "#ff2a6d"; emphasis_2 "#f9f002"; emphasis_3 "#00ff9f"; }
+        table_cell_selected   { base "#f5f5f5"; background "#14141c"; emphasis_0 "#ff2a6d"; emphasis_1 "#05d9e8"; emphasis_2 "#f9f002"; emphasis_3 "#00ff9f"; }
+        table_cell_unselected { base "#f5f5f5"; background "#000000"; emphasis_0 "#ff2a6d"; emphasis_1 "#05d9e8"; emphasis_2 "#f9f002"; emphasis_3 "#00ff9f"; }
+        list_selected         { base "#f5f5f5"; background "#14141c"; emphasis_0 "#ff2a6d"; emphasis_1 "#05d9e8"; emphasis_2 "#f9f002"; emphasis_3 "#00ff9f"; }
+        list_unselected       { base "#f5f5f5"; background "#000000"; emphasis_0 "#ff2a6d"; emphasis_1 "#05d9e8"; emphasis_2 "#f9f002"; emphasis_3 "#00ff9f"; }
+        frame_unselected      { base "#3a3a48"; background 0; emphasis_0 "#3a3a48"; emphasis_1 "#3a3a48"; emphasis_2 "#3a3a48"; emphasis_3 "#3a3a48"; }
+        frame_selected        { base "#ff2a6d"; background 0; emphasis_0 "#ff2a6d"; emphasis_1 "#05d9e8"; emphasis_2 "#f9f002"; emphasis_3 "#00ff9f"; }
+        frame_highlight       { base "#f9f002"; background 0; emphasis_0 "#f9f002"; emphasis_1 "#f9f002"; emphasis_2 "#f9f002"; emphasis_3 "#f9f002"; }
+        exit_code_success     { base "#00ff9f"; background 0; emphasis_0 "#05d9e8"; emphasis_1 "#00ff9f"; emphasis_2 "#3d7bff"; emphasis_3 "#f5f5f5"; }
+        exit_code_error       { base "#ff2a6d"; background 0; emphasis_0 "#ff2a6d"; emphasis_1 "#ff2a6d"; emphasis_2 "#ff2a6d"; emphasis_3 "#ff2a6d"; }
+        multiplayer_user_colors{ base "#ff2a6d"; background 0; emphasis_0 "#05d9e8"; emphasis_1 "#00ff9f"; emphasis_2 "#f9f002"; emphasis_3 "#3d7bff"; }
+    }
     ember-dark {
         bg "#1a1612"
         fg "#e8d5a3"

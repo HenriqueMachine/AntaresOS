@@ -1,0 +1,53 @@
+# Deepdeck · Ghostty — the minimum. Zellij does the tabs, panes and status bar.
+# Palette (Deepdeck): black #000000 · text #f5f5f5 · magenta #ff2a6d (active) · cyan #05d9e8 · yellow #f9f002
+
+# Font
+font-family = "FiraCode Nerd Font Mono"
+font-size = 14
+font-thicken = false
+
+# Colours: pure black, high contrast
+background = #000000
+foreground = #f5f5f5
+cursor-color = #ff2a6d
+cursor-text = #000000
+selection-background = #ff2a6d
+selection-foreground = #000000
+palette = 0=#000000
+palette = 1=#ff2a6d
+palette = 2=#00ff9f
+palette = 3=#f9f002
+palette = 4=#3d7bff
+palette = 5=#d300c5
+palette = 6=#05d9e8
+palette = 7=#f5f5f5
+palette = 8=#5c5c70
+palette = 9=#ff5c8a
+palette = 10=#5cffbe
+palette = 11=#fffb7a
+palette = 12=#7aa2ff
+palette = 13=#ff4fe6
+palette = 14=#6ff3fb
+palette = 15=#ffffff
+
+# Light on the GPU: no transparency, no blur, no shader, no blinking cursor
+background-opacity = 1
+background-blur = false
+cursor-style = block
+cursor-style-blink = false
+window-vsync = true
+unfocused-split-opacity = 1
+
+# Zellij needs Option as Alt (Alt 1..7 go to the tabs)
+macos-option-as-alt = true
+
+# Window: Zellij draws the tabs, so no Ghostty tabs in the title bar
+macos-titlebar-style = hidden
+window-padding-x = 6
+window-padding-y = 4
+window-save-state = never
+confirm-close-surface = false
+
+# Shell
+shell-integration = zsh
+copy-on-select = clipboard

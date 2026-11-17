@@ -60,7 +60,8 @@ alias ....='cd ../../..'
 alias c='clear'
 alias reload='exec zsh'
 
-export ANTARES_DIR="${ANTARES_DIR:-$HOME/Github/AntaresOS}"
+export DEEPDECK_DIR="${DEEPDECK_DIR:-$HOME/Github/Deepdeck}"
+export ANTARES_DIR="${ANTARES_DIR:-$DEEPDECK_DIR}"   # old name, kept for the scripts
 
 # entra na coleção Bruno do projeto (rode `bru run <req.bru>` depois)
 _antares_bruno() {
@@ -74,10 +75,18 @@ _antares_bruno() {
   cd "$dir" && { print "em $dir — rode:  bru run <req.bru>  (ou: bru run . --env local)"; ls; }
 }
 
-# antares — mini-CLI do ambiente
-antares() {
+# deepdeck — mini-CLI do ambiente (antes "antares")
+deepdeck() {
   case "$1" in
-    open|dev)     dev ;;
+    open|"")      [[ -z "$1" && -n "$ZELLIJ" ]] && { deepdeck help; return; }
+                  _zj_open deepdeck deepdeck ;;
+    agents|ag)    bash "$DEEPDECK_DIR/scripts/deepdeck-agents.sh" ;;
+    agent|a)      [[ -n "$2" ]] || { print "uso: deepdeck agent <nome>"; return 1; }
+                  "$HOME/Foodbot/foodbot-ops/bin/agent" "${@:2}" ;;
+    panel|painel) bash "$DEEPDECK_DIR/scripts/deepdeck-panel.sh" ;;
+    reset)        zellij kill-session deepdeck 2>/dev/null; zellij delete-session deepdeck 2>/dev/null
+                  print "sessão deepdeck removida — 'deepdeck open' cria de novo" ;;
+    dev)          dev ;;
     work)         work ;;
     flutter|fl)   fdev ;;
     proj)         proj ;;
@@ -90,9 +99,14 @@ antares() {
     health|observe)  "$ANTARES_DIR/scripts/courthub-observe.sh" ;;
     bruno|api)    _antares_bruno "${@:2}" ;;
     cd)           cd "$ANTARES_DIR" ;;
-    ""|help|-h|--help)
-      print "antares — ambiente AntaresOS"
-      print "  open      abre o ambiente (editor + terminais + lib)"
+    help|-h|--help)
+      print "deepdeck — ambiente FoodBot (Ghostty + Zellij + agentes Runeterra)"
+      print "  open      abre ou volta para a sessão deepdeck (NVIM · PAINEL · BACKEND · APP · SWAIN · EXTRA · AGENTES)"
+      print "  agents    menu dos agentes (Enter: nova sessão · Ctrl-R: retomar)"
+      print "  agent N   abre o agente N aqui (ex.: deepdeck agent thresh)"
+      print "  panel     o painel de métricas neste painel"
+      print "  reset     apaga a sessão deepdeck (o layout novo vale na próxima)"
+      print "  dev       o layout antigo (editor + terminais + lib)"
       print "  work      Foodbot + CourtHub em paralelo (5 tabs)"
       print "  flutter   layout Flutter"
       print "  proj      sessionizer de projetos"
@@ -103,9 +117,10 @@ antares() {
       print "  estudos   abre o vault Codex de Estudos (Obsidian)"
       print "  docker    lazydocker (containers dos projetos)"
       print "  health    watch de health do CourtHub (Actuator)"
-      print "  bruno     entra na coleção Bruno (antares bruno <fb|ch>)"
+      print "  bruno     entra na coleção Bruno (deepdeck bruno <fb|ch>)"
       print "  cd        vai para o repositório"
       ;;
-    *) print "antares: subcomando '$1' desconhecido — veja 'antares help'"; return 1 ;;
+    *) print "deepdeck: subcomando '$1' desconhecido — veja 'deepdeck help'"; return 1 ;;
   esac
 }
+alias antares='deepdeck'   # nome antigo, sai em 24/11

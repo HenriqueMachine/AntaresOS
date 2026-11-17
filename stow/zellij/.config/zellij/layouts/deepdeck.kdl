@@ -1,0 +1,96 @@
+// Deepdeck · layout "deepdeck" — FoodBot with the Runeterra agents
+// Tabs: 1 NVIM · 2 PAINEL · 3 BACKEND · 4 APP · 5 SWAIN · 6 EXTRA · 7 AGENTES  (Alt 1..7)
+// Agent panes are suspended: they show the command, and ENTER starts the agent (on demand, user decision 17/11).
+// When a session ends, the pane shows the command again and ENTER starts a new one (one session per ticket).
+// Emoji and colours: vault 11-Agentes/Identidade.md.
+
+layout {
+    cwd "/Users/henriquepaixao/Foodbot"
+
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+                format_left  "{mode}#[bg=#000000] {tabs}"
+                format_right "#[fg=#05d9e8,bg=#000000]{command_heavy} #[fg=#f9f002,bg=#000000,bold] {datetime} "
+                format_space "#[bg=#000000]"
+                border_enabled "false"
+
+                mode_normal  "#[bg=#ff2a6d,fg=#000000,bold] DEEPDECK "
+                mode_locked  "#[bg=#f9f002,fg=#000000,bold] LOCKED "
+                mode_pane    "#[bg=#05d9e8,fg=#000000,bold] PANE "
+                mode_tab     "#[bg=#05d9e8,fg=#000000,bold] TAB "
+                mode_resize  "#[bg=#f9f002,fg=#000000,bold] RESIZE "
+                mode_scroll  "#[bg=#d300c5,fg=#000000,bold] SCROLL "
+                mode_search  "#[bg=#d300c5,fg=#000000,bold] SEARCH "
+                mode_session "#[bg=#f5f5f5,fg=#000000,bold] SESSION "
+
+                tab_normal   "#[fg=#5c5c70,bg=#000000] {index} {name} "
+                tab_active   "#[fg=#ff2a6d,bg=#000000,bold] {index} {name} "
+
+                // Heavy lanes in the bar: "heavy 1/1 · quick 1/1 · fila 2"
+                command_heavy_command  "bash -c '/Users/henriquepaixao/Foodbot/foodbot-ops/bin/heavy --status 2>/dev/null | awk \"/^heavy slot/ && !/free/{h++} /^quick quick/ && !/free/{q++} / queue /{f++} END{printf \\\"heavy %d · quick %d · fila %d\\\", h, q, f}\"'"
+                command_heavy_format   "#[fg=#05d9e8,bg=#000000]{stdout}"
+                command_heavy_interval "15"
+                command_heavy_rendermode "static"
+
+                datetime        "#[fg=#f9f002,bg=#000000,bold]{format}"
+                datetime_format "%H:%M"
+                datetime_timezone "America/Sao_Paulo"
+            }
+        }
+        children
+    }
+
+    tab name="NVIM" focus=true {
+        pane command="nvim" borderless=true
+    }
+
+    tab name="PAINEL" {
+        pane command="bash" borderless=true {
+            args "/Users/henriquepaixao/Github/Deepdeck/scripts/deepdeck-panel.sh"
+        }
+    }
+
+    tab name="🗿⚙️ BACKEND" {
+        pane split_direction="vertical" {
+            pane name="🗿 Galio · integrador backend" command="/Users/henriquepaixao/Foodbot/foodbot-ops/bin/agent" start_suspended=true {
+                args "galio"
+            }
+            pane name="⚙️ Viktor · executor backend" command="/Users/henriquepaixao/Foodbot/foodbot-ops/bin/agent" start_suspended=true {
+                args "viktor"
+            }
+        }
+    }
+
+    tab name="💎🔧 APP" {
+        pane split_direction="vertical" {
+            pane name="💎 Taric · integrador app" command="/Users/henriquepaixao/Foodbot/foodbot-ops/bin/agent" start_suspended=true {
+                args "taric"
+            }
+            pane name="🔧 Heimerdinger · executor app" command="/Users/henriquepaixao/Foodbot/foodbot-ops/bin/agent" start_suspended=true {
+                args "heimerdinger"
+            }
+        }
+    }
+
+    tab name="🐦‍⬛⏳ SWAIN" {
+        pane split_direction="vertical" {
+            pane name="🐦‍⬛ Swain · orquestrador" command="/Users/henriquepaixao/Foodbot/foodbot-ops/bin/agent" start_suspended=true {
+                args "swain"
+            }
+            pane name="⏳ Zilean · IA full-stack" command="/Users/henriquepaixao/Foodbot/foodbot-ops/bin/agent" start_suspended=true {
+                args "zilean"
+            }
+        }
+    }
+
+    tab name="EXTRA" {
+        pane name="⛓️ Thresh · 🎩 Lupin · 🪝 Pyke — sob demanda: deepdeck agent <nome>"
+    }
+
+    tab name="AGENTES" {
+        pane command="bash" borderless=true {
+            args "/Users/henriquepaixao/Github/Deepdeck/scripts/deepdeck-agents.sh"
+        }
+    }
+}

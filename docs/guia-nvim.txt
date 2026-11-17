@@ -1,0 +1,84 @@
+# Guia do Nvim · Deepdeck
+# Formato: "## SEÇÃO" e "tecla | o que faz". O painel GUIA lê este arquivo.
+# ␣ = Espaço (a tecla líder do LazyVim). C- = Ctrl. Edite à vontade.
+
+## MODOS
+Esc        | volta ao modo normal
+i  a       | escrever antes / depois do cursor
+o  O       | linha nova abaixo / acima
+v  V       | selecionar letras / linhas
+C-v        | selecionar em bloco (colunas)
+
+## SALVAR E SAIR
+C-s        | salvar o arquivo
+:q         | fechar a janela
+:q!        | sair sem salvar
+␣qq        | sair de tudo
+
+## ANDAR
+h j k l    | esquerda baixo cima direita
+w  b       | próxima / anterior palavra
+0  $       | início / fim da linha
+gg  G      | início / fim do arquivo
+C-d  C-u   | meia tela abaixo / acima
+%          | par do parêntese/chave
+:42        | ir para a linha 42
+
+## EDITAR
+x          | apagar a letra
+dd         | apagar a linha
+yy  p      | copiar a linha / colar
+ciw        | trocar a palavra
+ci"        | trocar o texto entre aspas
+.          | repetir a última mudança
+u  C-r     | desfazer / refazer
+>>  <<     | indentar / tirar indentação
+gcc        | comentar a linha
+J  K (v)   | mover a seleção
+
+## BUSCAR
+/texto     | buscar no arquivo
+n  N       | próximo / anterior
+*          | buscar a palavra do cursor
+:%s/a/b/g  | trocar a por b no arquivo
+
+## ARQUIVOS (LazyVim)
+␣␣         | achar arquivo
+␣ff        | achar arquivo (raiz)
+␣fr        | arquivos recentes
+␣/         | buscar texto no projeto
+␣e         | árvore de arquivos
+␣,         | buffers abertos
+S-h  S-l   | buffer anterior / próximo
+␣bd        | fechar o buffer
+
+## CÓDIGO (LSP)
+gd         | ir para a definição
+gr         | onde é usado
+K          | documentação
+␣ca        | ações (importar, corrigir)
+␣cr        | renomear
+␣cf        | formatar
+]d  [d     | próximo / anterior erro
+␣cd        | ver o erro da linha
+␣xx        | lista de erros
+
+## JANELAS
+␣-  ␣|     | dividir abaixo / ao lado
+C-h C-l    | trocar de janela
+␣wd        | fechar a janela
+
+## GIT
+␣gg        | lazygit
+␣gb        | quem mudou a linha
+]h  [h     | próxima / anterior mudança
+
+## AJUDA
+␣          | espere: o Nvim mostra as teclas
+␣sk        | buscar um atalho
+:help x    | ajuda do comando x
+
+## ZELLIJ
+Opt+setas  | trocar de painel
+Opt+g      | tela cheia (esconde o guia)
+Opt+1..7   | trocar de aba

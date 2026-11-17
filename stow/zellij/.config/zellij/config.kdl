@@ -31,11 +31,15 @@ load_plugins {
 }
 
 keybinds {
-    shared_except "locked" {
-        bind "Ctrl h" { MoveFocusOrTab "Left"; }
-        bind "Ctrl l" { MoveFocusOrTab "Right"; }
-        bind "Ctrl j" { MoveFocus "Down"; }
-        bind "Ctrl k" { MoveFocus "Up"; }
+    // In every mode, also "locked" (autolock locks Zellij while nvim, fzf or lazygit has the focus):
+    // Option+arrow moves between the panes (for example nvim <-> the guide), Option+1..7 goes to a tab,
+    // and Option+g shows the focused pane on the full screen (it hides the guide) and back.
+    shared {
+        bind "Alt Left" { MoveFocusOrTab "Left"; }
+        bind "Alt Right" { MoveFocusOrTab "Right"; }
+        bind "Alt Up" { MoveFocus "Up"; }
+        bind "Alt Down" { MoveFocus "Down"; }
+        bind "Alt g" { ToggleFocusFullscreen; }
         bind "Alt 1" { GoToTab 1; }
         bind "Alt 2" { GoToTab 2; }
         bind "Alt 3" { GoToTab 3; }
@@ -43,6 +47,12 @@ keybinds {
         bind "Alt 5" { GoToTab 5; }
         bind "Alt 6" { GoToTab 6; }
         bind "Alt 7" { GoToTab 7; }
+    }
+    shared_except "locked" {
+        bind "Ctrl h" { MoveFocusOrTab "Left"; }
+        bind "Ctrl l" { MoveFocusOrTab "Right"; }
+        bind "Ctrl j" { MoveFocus "Down"; }
+        bind "Ctrl k" { MoveFocus "Up"; }
         bind "Ctrl y" {
             LaunchOrFocusPlugin "file:~/zellij-plugins/zellij_forgot.wasm" {
                 floating true
@@ -55,33 +65,33 @@ keybinds {
 // Acento: #e8a020 (âmbar) · secundária: #a48ca1 (lavanda) · green: #87a987
 themes {
     deepdeck {
-        bg "#000000"
-        fg "#f5f5f5"
-        black "#000000"
-        red "#ff2a6d"
-        green "#00ff9f"
-        yellow "#f9f002"
-        blue "#3d7bff"
-        magenta "#ff2a6d"
-        cyan "#05d9e8"
-        white "#f5f5f5"
-        orange "#f9f002"
+        bg "#0e0e14"
+        fg "#d8dae5"
+        black "#0e0e14"
+        red "#e8457a"
+        green "#5fd7a0"
+        yellow "#e6c84c"
+        blue "#6b8cff"
+        magenta "#e8457a"
+        cyan "#4cc9d6"
+        white "#eef0f6"
+        orange "#e6c84c"
 
-        text_unselected       { base "#f5f5f5"; background "#000000"; emphasis_0 "#ff2a6d"; emphasis_1 "#05d9e8"; emphasis_2 "#f9f002"; emphasis_3 "#00ff9f"; }
-        text_selected         { base "#000000"; background "#ff2a6d"; emphasis_0 "#f9f002"; emphasis_1 "#05d9e8"; emphasis_2 "#f5f5f5"; emphasis_3 "#00ff9f"; }
-        ribbon_selected       { base "#000000"; background "#ff2a6d"; emphasis_0 "#000000"; emphasis_1 "#000000"; emphasis_2 "#000000"; emphasis_3 "#000000"; }
-        ribbon_unselected     { base "#5c5c70"; background "#000000"; emphasis_0 "#5c5c70"; emphasis_1 "#5c5c70"; emphasis_2 "#5c5c70"; emphasis_3 "#5c5c70"; }
-        table_title           { base "#ff2a6d"; background 0; emphasis_0 "#05d9e8"; emphasis_1 "#ff2a6d"; emphasis_2 "#f9f002"; emphasis_3 "#00ff9f"; }
-        table_cell_selected   { base "#f5f5f5"; background "#14141c"; emphasis_0 "#ff2a6d"; emphasis_1 "#05d9e8"; emphasis_2 "#f9f002"; emphasis_3 "#00ff9f"; }
-        table_cell_unselected { base "#f5f5f5"; background "#000000"; emphasis_0 "#ff2a6d"; emphasis_1 "#05d9e8"; emphasis_2 "#f9f002"; emphasis_3 "#00ff9f"; }
-        list_selected         { base "#f5f5f5"; background "#14141c"; emphasis_0 "#ff2a6d"; emphasis_1 "#05d9e8"; emphasis_2 "#f9f002"; emphasis_3 "#00ff9f"; }
-        list_unselected       { base "#f5f5f5"; background "#000000"; emphasis_0 "#ff2a6d"; emphasis_1 "#05d9e8"; emphasis_2 "#f9f002"; emphasis_3 "#00ff9f"; }
-        frame_unselected      { base "#3a3a48"; background 0; emphasis_0 "#3a3a48"; emphasis_1 "#3a3a48"; emphasis_2 "#3a3a48"; emphasis_3 "#3a3a48"; }
-        frame_selected        { base "#ff2a6d"; background 0; emphasis_0 "#ff2a6d"; emphasis_1 "#05d9e8"; emphasis_2 "#f9f002"; emphasis_3 "#00ff9f"; }
-        frame_highlight       { base "#f9f002"; background 0; emphasis_0 "#f9f002"; emphasis_1 "#f9f002"; emphasis_2 "#f9f002"; emphasis_3 "#f9f002"; }
-        exit_code_success     { base "#00ff9f"; background 0; emphasis_0 "#05d9e8"; emphasis_1 "#00ff9f"; emphasis_2 "#3d7bff"; emphasis_3 "#f5f5f5"; }
-        exit_code_error       { base "#ff2a6d"; background 0; emphasis_0 "#ff2a6d"; emphasis_1 "#ff2a6d"; emphasis_2 "#ff2a6d"; emphasis_3 "#ff2a6d"; }
-        multiplayer_user_colors{ base "#ff2a6d"; background 0; emphasis_0 "#05d9e8"; emphasis_1 "#00ff9f"; emphasis_2 "#f9f002"; emphasis_3 "#3d7bff"; }
+        text_unselected       { base "#d8dae5"; background "#0e0e14"; emphasis_0 "#e8457a"; emphasis_1 "#4cc9d6"; emphasis_2 "#e6c84c"; emphasis_3 "#5fd7a0"; }
+        text_selected         { base "#0e0e14"; background "#e8457a"; emphasis_0 "#e6c84c"; emphasis_1 "#4cc9d6"; emphasis_2 "#d8dae5"; emphasis_3 "#5fd7a0"; }
+        ribbon_selected       { base "#0e0e14"; background "#e8457a"; emphasis_0 "#0e0e14"; emphasis_1 "#0e0e14"; emphasis_2 "#0e0e14"; emphasis_3 "#0e0e14"; }
+        ribbon_unselected     { base "#878ca6"; background "#0e0e14"; emphasis_0 "#878ca6"; emphasis_1 "#878ca6"; emphasis_2 "#878ca6"; emphasis_3 "#878ca6"; }
+        table_title           { base "#e8457a"; background 0; emphasis_0 "#4cc9d6"; emphasis_1 "#e8457a"; emphasis_2 "#e6c84c"; emphasis_3 "#5fd7a0"; }
+        table_cell_selected   { base "#d8dae5"; background "#1c1c28"; emphasis_0 "#e8457a"; emphasis_1 "#4cc9d6"; emphasis_2 "#e6c84c"; emphasis_3 "#5fd7a0"; }
+        table_cell_unselected { base "#d8dae5"; background "#0e0e14"; emphasis_0 "#e8457a"; emphasis_1 "#4cc9d6"; emphasis_2 "#e6c84c"; emphasis_3 "#5fd7a0"; }
+        list_selected         { base "#d8dae5"; background "#1c1c28"; emphasis_0 "#e8457a"; emphasis_1 "#4cc9d6"; emphasis_2 "#e6c84c"; emphasis_3 "#5fd7a0"; }
+        list_unselected       { base "#d8dae5"; background "#0e0e14"; emphasis_0 "#e8457a"; emphasis_1 "#4cc9d6"; emphasis_2 "#e6c84c"; emphasis_3 "#5fd7a0"; }
+        frame_unselected      { base "#2e2e3e"; background 0; emphasis_0 "#2e2e3e"; emphasis_1 "#2e2e3e"; emphasis_2 "#2e2e3e"; emphasis_3 "#2e2e3e"; }
+        frame_selected        { base "#e8457a"; background 0; emphasis_0 "#e8457a"; emphasis_1 "#4cc9d6"; emphasis_2 "#e6c84c"; emphasis_3 "#5fd7a0"; }
+        frame_highlight       { base "#e6c84c"; background 0; emphasis_0 "#e6c84c"; emphasis_1 "#e6c84c"; emphasis_2 "#e6c84c"; emphasis_3 "#e6c84c"; }
+        exit_code_success     { base "#5fd7a0"; background 0; emphasis_0 "#4cc9d6"; emphasis_1 "#5fd7a0"; emphasis_2 "#6b8cff"; emphasis_3 "#d8dae5"; }
+        exit_code_error       { base "#e8457a"; background 0; emphasis_0 "#e8457a"; emphasis_1 "#e8457a"; emphasis_2 "#e8457a"; emphasis_3 "#e8457a"; }
+        multiplayer_user_colors{ base "#e8457a"; background 0; emphasis_0 "#4cc9d6"; emphasis_1 "#5fd7a0"; emphasis_2 "#e6c84c"; emphasis_3 "#6b8cff"; }
     }
     ember-dark {
         bg "#1a1612"

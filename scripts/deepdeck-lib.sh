@@ -8,8 +8,8 @@ DD_VAULT=$FOODBOT_ROOT/obsidian-vault/knowledge
 DD_IDENTITY=$DD_VAULT/11-Agentes/Identidade.md
 
 # Palette
-DD_M=$'\e[38;2;255;42;109m'; DD_C=$'\e[38;2;5;217;232m'; DD_Y=$'\e[38;2;249;240;2m'; DD_G=$'\e[38;2;0;255;159m'
-DD_W=$'\e[38;2;245;245;245m'; DD_D=$'\e[38;2;92;92;112m'; DD_B=$'\e[1m'; DD_R=$'\e[0m'
+DD_M=$'\e[38;2;232;69;122m'; DD_C=$'\e[38;2;76;201;214m'; DD_Y=$'\e[38;2;230;200;76m'; DD_G=$'\e[38;2;95;215;160m'
+DD_W=$'\e[38;2;216;218;229m'; DD_D=$'\e[38;2;135;140;166m'; DD_B=$'\e[1m'; DD_R=$'\e[0m'
 
 # "#rrggbb" -> ANSI truecolor foreground
 dd_fg() {

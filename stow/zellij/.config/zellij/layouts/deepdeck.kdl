@@ -8,41 +8,26 @@ layout {
     cwd "/Users/henriquepaixao/Foodbot"
 
     default_tab_template {
+        // Native tab bar: zjstatus does not render on Zellij 0.44.3 (the same fix as work.kdl, 08e3020).
+        // The heavy lanes and the clock are in the PAINEL tab.
         pane size=1 borderless=true {
-            plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
-                format_left  "{mode}#[bg=#000000] {tabs}"
-                format_right "#[fg=#05d9e8,bg=#000000]{command_heavy} #[fg=#f9f002,bg=#000000,bold] {datetime} "
-                format_space "#[bg=#000000]"
-                border_enabled "false"
-
-                mode_normal  "#[bg=#ff2a6d,fg=#000000,bold] DEEPDECK "
-                mode_locked  "#[bg=#f9f002,fg=#000000,bold] LOCKED "
-                mode_pane    "#[bg=#05d9e8,fg=#000000,bold] PANE "
-                mode_tab     "#[bg=#05d9e8,fg=#000000,bold] TAB "
-                mode_resize  "#[bg=#f9f002,fg=#000000,bold] RESIZE "
-                mode_scroll  "#[bg=#d300c5,fg=#000000,bold] SCROLL "
-                mode_search  "#[bg=#d300c5,fg=#000000,bold] SEARCH "
-                mode_session "#[bg=#f5f5f5,fg=#000000,bold] SESSION "
-
-                tab_normal   "#[fg=#5c5c70,bg=#000000] {index} {name} "
-                tab_active   "#[fg=#ff2a6d,bg=#000000,bold] {index} {name} "
-
-                // Heavy lanes in the bar: "heavy 1/1 · quick 1/1 · fila 2"
-                command_heavy_command  "bash -c '/Users/henriquepaixao/Foodbot/foodbot-ops/bin/heavy --status 2>/dev/null | awk \"/^heavy slot/ && !/free/{h++} /^quick quick/ && !/free/{q++} / queue /{f++} END{printf \\\"heavy %d · quick %d · fila %d\\\", h, q, f}\"'"
-                command_heavy_format   "#[fg=#05d9e8,bg=#000000]{stdout}"
-                command_heavy_interval "15"
-                command_heavy_rendermode "static"
-
-                datetime        "#[fg=#f9f002,bg=#000000,bold]{format}"
-                datetime_format "%H:%M"
-                datetime_timezone "America/Sao_Paulo"
-            }
+            plugin location="zellij:tab-bar"
         }
         children
+        // The key hints at the bottom (Ctrl + g LOCK, p PANE, t TAB...), in the theme colours.
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
     }
 
+    // NVIM: the editor (70 %) and the GUIA (30 %, docs/guia-nvim.txt). Option+arrow goes between them; Option+g hides the guide.
     tab name="NVIM" focus=true {
-        pane command="nvim" borderless=true
+        pane split_direction="vertical" {
+            pane command="nvim" size="70%" focus=true
+            pane name="GUIA" command="bash" size="30%" {
+                args "/Users/henriquepaixao/Github/Deepdeck/scripts/deepdeck-guide.sh"
+            }
+        }
     }
 
     tab name="PAINEL" {

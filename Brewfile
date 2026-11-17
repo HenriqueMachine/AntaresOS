@@ -53,5 +53,6 @@ cask "flutter"
 # Apps
 cask "ghostty"
 cask "font-fira-code-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
 cask "010-editor"
 cask "ngrok"

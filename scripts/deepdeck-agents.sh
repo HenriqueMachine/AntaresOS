@@ -31,7 +31,7 @@ while true; do
   out=$(list | fzf --ansi --reverse --no-sort --prompt 'agente › ' \
     --header $'Enter: nova sessão · Ctrl-R: retomar · Esc: sair' \
     --expect ctrl-r \
-    --color 'fg:#f5f5f5,bg:#000000,hl:#05d9e8,fg+:#000000,bg+:#ff2a6d,hl+:#f9f002,prompt:#ff2a6d,pointer:#f9f002,header:#5c5c70,border:#ff2a6d' \
+    --color 'fg:#d8dae5,bg:#0e0e14,hl:#4cc9d6,fg+:#eef0f6,bg+:#2a2a3a,hl+:#e6c84c,prompt:#e8457a,pointer:#e6c84c,header:#878ca6,border:#e8457a' \
     --border rounded --border-label ' DEEPDECK · AGENTES ') || exit 0
   key=$(sed -n 1p <<<"$out")
   name=$(sed -n 2p <<<"$out" | awk '{print $2}')
